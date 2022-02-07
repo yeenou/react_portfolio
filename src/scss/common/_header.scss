@@ -25,3 +25,19 @@ header {
     }
   }
 }
+
+@media screen and (max-width: $tablet){
+  header {
+    .inner {
+      width: 100%;
+
+      h1 {
+        left: 3vw;
+      }
+
+      #gnb {
+        display: none;
+      }
+    }
+  }
+}
