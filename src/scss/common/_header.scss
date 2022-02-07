@@ -23,6 +23,10 @@ header {
         }
       }
     }
+
+    .fa-bars {
+      font-size: 20px; color: #fff; position: absolute; bottom: 20px; right: 5vw; display: none;
+    }
   }
 }
 
@@ -32,11 +36,15 @@ header {
       width: 100%;
 
       h1 {
-        left: 3vw;
+        left: 5vw;
       }
 
       #gnb {
         display: none;
+      }
+
+      .fa-bars {
+        display: block;
       }
     }
   }
