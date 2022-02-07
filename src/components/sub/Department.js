@@ -30,7 +30,15 @@ export default function Department(){
       <div className="inner">
         <h1>Department</h1>
         <section>
-
+          {members.map( (data,idx) => {
+            return (
+              <article key={idx}>
+                <img src={`${path}/img/${data.pic}`} />
+                <h2>{data.name}</h2>
+                <p>{data.position}</p>
+              </article>
+            )
+          })}
         </section>
       </div>
     </main>
