@@ -5,6 +5,7 @@ export default function Gallery(){
   let main = useRef(null);
   const [items, setItems] = useState([]);
   const [isPop, setIsPop] = useState(false);
+  const [index, setIndex] = useState(0);
   const api_key = '89aae050d1d8c006bdb5bf866029199d';
   const method1 = 'flickr.interestingness.getList';
   const num = 5;
@@ -33,6 +34,7 @@ export default function Gallery(){
                 <div className="inner">
                   <div className="pic" onClick={()=>{
                     setIsPop(true);
+                    setIndex(idx);
                   }}>
                     <img src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} />
                   </div>
@@ -53,6 +55,7 @@ export default function Gallery(){
   function Popup(){
     return (
       <aside className="popup">
+        <img src={`https://live.staticflickr.com/${items[index].server}/${items[index].id}_${items[index].secret}_b.jpg`} />
         <span onClick={()=>{
           setIsPop(false);
         }}>close</span>
