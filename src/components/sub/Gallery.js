@@ -3,7 +3,8 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Gallery(){ 
   let main = useRef(null);
-  let [items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
+  const [isPop, setIsPop] = useState(false);
   const api_key = '89aae050d1d8c006bdb5bf866029199d';
   const method1 = 'flickr.interestingness.getList';
   const num = 5;
@@ -19,6 +20,7 @@ export default function Gallery(){
   },[]);
 
   return (
+    <>
     <main className="content gallery" ref={main}>
       <figure></figure>
       
@@ -29,7 +31,9 @@ export default function Gallery(){
             return (
               <article key={idx}>
                 <div className="inner">
-                  <div className="pic">
+                  <div className="pic" onClick={()=>{
+                    setIsPop(true);
+                  }}>
                     <img src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} />
                   </div>
 
@@ -41,5 +45,19 @@ export default function Gallery(){
         </section>
       </div>
     </main>
+
+    { isPop ? <Popup /> : null }
+    </>
   )
+
+  function Popup(){
+    return (
+      <aside className="popup">
+        <span onClick={()=>{
+          setIsPop(false);
+        }}>close</span>
+      </aside>
+    )
+  }
 }
+
