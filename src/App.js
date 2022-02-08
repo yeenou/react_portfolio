@@ -1,8 +1,6 @@
+import Main from './components/main/Main';
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
-import Visual from './components/main/Visual';
-import Intro from './components/main/Intro';
-import Info from './components/main/Info';
 import Department from './components/sub/Department';
 import Community from './components/sub/Community';
 import Gallery from './components/sub/Gallery';
@@ -10,19 +8,13 @@ import Youtube from './components/sub/Youtube';
 import Location from './components/sub/Location';
 import Join from './components/sub/Join';
 import './scss/style.scss';
-import {Route, Switch} from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 export default function App() {
   return (
     <div className="App">   
       <Switch>
-        <Route exact path='/'>    
-          <Header type={'main'} />    
-          <Visual />
-          <Intro />
-          <Info />
-        </Route>    
-        
+        <Route exact path='/' component={Main}></Route>
         <Route path='/'>
           <Header type={'sub'} />
         </Route>  
