@@ -27,13 +27,18 @@ export default function Youtube(){
         <h1>Youtube</h1>
         <section>
           {items.map((item,idx)=>{
+            let tit = item.snippet.title;
+            let tit_len = tit.length;
+            let desc = item.snippet.description;
+            let desc_len = desc.length;
+
             return (
               <article key={idx}>
                 <div className="inner">
                   <div className="pic">
                     <img src={item.snippet.thumbnails.standard.url} />
-                    <h2>{item.snippet.title}</h2>
-                    <p>{item.snippet.description}</p>
+                    <h2>{tit_len>40 ? tit.substr(0,40)+'...' : tit}</h2>
+                    <p>{desc_len>150 ? desc.substr(0,150)+'...' : desc}</p>
                   </div>
                 </div>
               </article>
