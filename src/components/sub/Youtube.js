@@ -36,7 +36,7 @@ export default function Youtube(){
               <article key={idx}>
                 <div className="inner">               
                   <div className="txt">
-                    <h2>{tit_len>40 ? tit.substr(0,40)+'...' : tit}</h2>
+                    <h2>{tit_len>30 ? tit.substr(0,30)+'...' : tit}</h2>
                     <p>{desc_len>150 ? desc.substr(0,150)+'...' : desc}</p>
                   </div>
                   <div className="pic">
