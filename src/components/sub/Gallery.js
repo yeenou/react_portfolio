@@ -14,8 +14,7 @@ export default function Gallery(){
   useEffect(()=>{
     main.current.classList.add('on');
 
-    axios.get(url).then(json=>{
-      console.log(json.data.photos.photo);
+    axios.get(url).then(json=>{   
       setItems(json.data.photos.photo);
     })
   },[]);
@@ -60,7 +59,8 @@ export default function Gallery(){
 
     return (
       <aside className="popup">
-        <img src={`https://live.staticflickr.com/${items[index].server}/${items[index].id}_${items[index].secret}_b.jpg`} />
+        <h1>{items[index].title}</h1>
+        <img src={`https://live.staticflickr.com/${items[index].server}/${items[index].id}_${items[index].secret}_b.jpg`} />        
         <span onClick={()=>{
           setIsPop(false);
         }}>close</span>
