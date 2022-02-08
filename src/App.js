@@ -7,17 +7,16 @@ import Gallery from './components/sub/Gallery';
 import Youtube from './components/sub/Youtube';
 import Location from './components/sub/Location';
 import Join from './components/sub/Join';
-import './scss/style.scss';
 import { Route, Switch } from 'react-router-dom';
+import './scss/style.scss';
+
 
 export default function App() {
   return (
     <div className="App">   
       <Switch>
-        <Route exact path='/' component={Main}></Route>
-        <Route path='/'>
-          <Header type={'sub'} />
-        </Route>  
+        <Route exact path='/' component={Main}></Route>       
+        <Route path='/' component={()=> <Header type={'sub'} />}></Route>
       </Switch>
 
       <Route path='/department' component={Department}></Route>
