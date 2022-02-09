@@ -38,7 +38,10 @@ export default function Location(){
   },[]);
   
   //index state값이 변경될때마다 실행
-  useEffect(()=>{     
+  useEffect(()=>{ 
+    //해당 훅함수가 재 호출될때마다 일단 #map안쪽을 비워둠 
+    container.current.innerHTML = '';
+
     const options = {
       center: mapInfo[0].latlng,
       level: 3 
