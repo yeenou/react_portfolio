@@ -56,6 +56,14 @@ export default function Location(){
 
     //순서 state값이 변경될때마다 맵의 중앙 위치를 다시 렌더링
     map.setCenter(mapInfo[index].latlng);
+
+    const mapSet = () => map.setCenter(mapInfo[index].latlng);
+
+    //브라우저 리사이즈시 마커 위치를 중앙배치
+    window.addEventListener('resize', mapSet);
+
+    //해당 컴포넌트가 재 랜더링 될때마다 기존 window객체에 등록된 함수를 다시 제거
+    return ()=> window.removeEventListener('resize', mapSet);
   },[index]); 
 
   return (
