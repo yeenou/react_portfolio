@@ -5,17 +5,51 @@ export default function Location(){
   const {kakao} = window;
   const container = useRef(null);  
   const [map, setMap] = useState(null);
+  const path = process.env.PUBLIC_URL;
+  //마커 이미지정보 및 위치정보 값
+  const info = [
+    {
+        title:"본점", 
+        latlng : new kakao.maps.LatLng(37.50711796614849,126.7564159502457),
+        imgSrc : path+'/img/marker1.png', 
+        imgSize : new kakao.maps.Size(232,99), 
+        imgPos : {offset: new kakao.maps.Point(116, 99)},
+    },
+    {
+        title:"지점1", 
+        latlng : new kakao.maps.LatLng(33.450701, 126.570667),
+        imgSrc : path+'/img/marker2.png', 
+        imgSize : new kakao.maps.Size(232,99), 
+        imgPos : {offset: new kakao.maps.Point(116, 99)},
+    },
+    {
+        title:"지점2", 
+        latlng : new kakao.maps.LatLng(37.557527,126.9222836),
+        imgSrc : path+'/img/marker3.png', 
+        imgSize : new kakao.maps.Size(232,99), 
+        imgPos : {offset: new kakao.maps.Point(116, 99)}, 
+    }
+  ]; 
+  const [mapInfo, setMapInfo] = useState(info);
 
   useEffect(()=>{
     main.current.classList.add('on');  
 
     const options = {
-      center: new kakao.maps.LatLng(35.1529763,129.1245155),
-      level: 3
+      center: new kakao.maps.LatLng(37.50711796614849,126.7564159502457),
+      level: 3 
     }
-    //카카오 api를 통해 리턴한 인스턴스를 state map에 옮겨담음
+    
     const map = new kakao.maps.Map(container.current, options);
     setMap(map);
+
+    //마커출력 인스턴스 생성시 미리 state에 저장해놓은 mapInfo배열의 정보값을 옵션으로 전달
+    new kakao.maps.Marker({
+      map: map,
+      position: mapInfo[0].latlng,
+      title: mapInfo[0].title,
+      image: new kakao.maps.MarkerImage(mapInfo[0].imgSrc, mapInfo[0].imgSize, mapInfo[0].imgPos)
+    })
   },[]);
 
   return (
