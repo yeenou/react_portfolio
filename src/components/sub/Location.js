@@ -5,8 +5,8 @@ export default function Location(){
   const {kakao} = window;
   const container = useRef(null);  
   const [map, setMap] = useState(null);
-  const path = process.env.PUBLIC_URL;
-  //마커 이미지정보 및 위치정보 값
+  const [index, setIndex] = useState(0);
+  const path = process.env.PUBLIC_URL;  
   const info = [
     {
         title:"본점", 
@@ -30,27 +30,35 @@ export default function Location(){
         imgPos : {offset: new kakao.maps.Point(116, 99)}, 
     }
   ]; 
-  const [mapInfo, setMapInfo] = useState(info);
+  const [mapInfo] = useState(info);
 
+  //처음 로딩시 한번만 실행
   useEffect(()=>{
-    main.current.classList.add('on');  
-
+    main.current.classList.add('on'); 
+  },[]);
+  
+  //index state값이 변경될때마다 실행
+  useEffect(()=>{  
     const options = {
-      center: new kakao.maps.LatLng(37.50711796614849,126.7564159502457),
+      center: mapInfo[0].latlng,
       level: 3 
     }
     
     const map = new kakao.maps.Map(container.current, options);
     setMap(map);
-
-    //마커출력 인스턴스 생성시 미리 state에 저장해놓은 mapInfo배열의 정보값을 옵션으로 전달
+    
     new kakao.maps.Marker({
       map: map,
-      position: mapInfo[0].latlng,
-      title: mapInfo[0].title,
-      image: new kakao.maps.MarkerImage(mapInfo[0].imgSrc, mapInfo[0].imgSize, mapInfo[0].imgPos)
-    })
-  },[]);
+      position: mapInfo[index].latlng,
+      title: mapInfo[index].title,
+      image: new kakao.maps.MarkerImage(mapInfo[index].imgSrc, mapInfo[index].imgSize, mapInfo[index].imgPos)
+    }) 
+
+    //순서 state값이 변경될때마다 맵의 중앙 위치를 다시 렌더링
+    map.setCenter(mapInfo[index].latlng);
+  },[index]);
+
+ 
 
   return (
     <main className="content location" ref={main}>
@@ -61,13 +69,29 @@ export default function Location(){
         <section>
           <div id="map" ref={container}></div>
 
-          <button onClick={()=>{
-            map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-          }}>교통정보 보기</button>
+          <nav className='traffic'>
+            <button onClick={()=>{
+              map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+            }}>교통정보 보기</button>
+            
+            <button onClick={()=>{
+              map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
+            }}>교통정보 끄기</button>
+          </nav>
 
-          <button onClick={()=>{
-            map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-          }}>교통정보 끄기</button>
+          <nav className="branch">
+            <button onClick={()=>{
+              setIndex(0);
+            }}>본점</button>
+
+            <button onClick={()=>{
+              setIndex(1);
+            }}>지점1</button>
+
+            <button onClick={()=>{
+              setIndex(2);
+            }}>지점2</button>
+          </nav>
         </section>
       </div>
     </main>
