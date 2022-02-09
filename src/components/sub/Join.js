@@ -2,29 +2,50 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Join(){
   let main = useRef(null);
-
-  //state로 관리할 초기 value값들
+  
   const initVal = {
     userid: ''
   }
 
-  //useState로 초기 value값을 state에 담아서 관리 시작
   const [val, setVal] = useState(initVal);
+  //인풋의 인증 실패시 출력될 에러메세지를 담을 state생성
+  const [err, setErr] = useState({});
 
-  //input의 상태값이 변경될때마다 실행될 함수
-  const handleChange = e => { 
-    //input요소의 name값과 value값을 구조분해 할당으로 가져옴   
-    const {name, value} = e.target;
-    console.log(`name: ${name}, value: ${value}`);
-    //onChange 발생시 기존 val state값을 현재 사용자가 입력하는 값으로 갱신
+  const handleChange = e => {  
+    const {name, value} = e.target; 
     setVal({...val, [name]: value});
-    //결과적으로 현재 입력하고 있는 값이 input요소의 value속성에 의해서 출력됨
-    console.log(val);
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    
+    //check함수에 인수로 기존 err state로 인수로 전달
+    setErr(check(val));  
+  }
+
+  //에러 객체를 반환하는 함수
+  const check = val => {
+    let errs = {}
+    //인수로 받은 value의 조건에 부합하면
+    if( !val.userid || val.userid.length<5 ){
+      //빈 err객체에 userid에 해당하는 에러객체를 추가
+      errs.userid = '아이디를 5글자 이상 입력하세요';
+    }   
+    //추가된 객체내용을 내보냄
+    return errs;
   }
 
   useEffect(()=>{
     main.current.classList.add('on');
   },[]);
+
+  //err state값이 변경될때마다 동작하는 함수
+  useEffect(()=>{
+    console.log(err);
+  },[err]);
+
+
+
 
   return (
     <main className="content join" ref={main}>
@@ -33,7 +54,8 @@ export default function Join(){
       <div className="inner">
         <h1>Join</h1>
         <section>
-          <form>
+          {/* submit이벤트 발생시 함수호출 */}
+          <form onSubmit={handleSubmit}>
             <fieldset>
               <legend>회원가입 폼 양식</legend>
 
@@ -49,8 +71,7 @@ export default function Join(){
                         type="text" 
                         id='userid'
                         name='userid'
-                        placeholder='아이디를 입력하세요'
-                        //실제 state값이 변경되어야지 input창에 값 출력
+                        placeholder='아이디를 입력하세요'                   
                         value={val.userid}
                         onChange={handleChange}
                       />
