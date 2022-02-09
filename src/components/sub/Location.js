@@ -31,15 +31,12 @@ export default function Location(){
     }
   ]; 
   const [mapInfo] = useState(info);
-
-  //처음 로딩시 한번만 실행
+ 
   useEffect(()=>{
     main.current.classList.add('on'); 
-  },[]);
-  
-  //index state값이 변경될때마다 실행
-  useEffect(()=>{ 
-    //해당 훅함수가 재 호출될때마다 일단 #map안쪽을 비워둠 
+  },[]);  
+
+  useEffect(()=>{    
     container.current.innerHTML = '';
 
     const options = {
@@ -57,15 +54,20 @@ export default function Location(){
       image: new kakao.maps.MarkerImage(mapInfo[index].imgSrc, mapInfo[index].imgSize, mapInfo[index].imgPos)
     }) 
 
-    //순서 state값이 변경될때마다 맵의 중앙 위치를 다시 렌더링
     map.setCenter(mapInfo[index].latlng);
-
     const mapSet = () => map.setCenter(mapInfo[index].latlng);
-
-    //브라우저 리사이즈시 마커 위치를 중앙배치
     window.addEventListener('resize', mapSet);
 
-    //해당 컴포넌트가 재 랜더링 될때마다 기존 window객체에 등록된 함수를 다시 제거
+    //지도 타입변경 컨트롤러 표시
+    const mapType = new kakao.maps.MapTypeControl();
+    map.addControl(mapType, kakao.maps.ControlPosition.TOPRIGHT);
+
+    //휠로 줌기술 활성화 유무
+    map.setZoomable(true);
+
+    //마우스 드래그기능 활성화 유무
+    map.setDraggable(true);
+
     return ()=> window.removeEventListener('resize', mapSet);
   },[index]); 
 
