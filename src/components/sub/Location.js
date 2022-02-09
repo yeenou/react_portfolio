@@ -38,7 +38,7 @@ export default function Location(){
   },[]);
   
   //index state값이 변경될때마다 실행
-  useEffect(()=>{  
+  useEffect(()=>{     
     const options = {
       center: mapInfo[0].latlng,
       level: 3 
@@ -56,9 +56,7 @@ export default function Location(){
 
     //순서 state값이 변경될때마다 맵의 중앙 위치를 다시 렌더링
     map.setCenter(mapInfo[index].latlng);
-  },[index]);
-
- 
+  },[index]); 
 
   return (
     <main className="content location" ref={main}>
@@ -80,17 +78,9 @@ export default function Location(){
           </nav>
 
           <nav className="branch">
-            <button onClick={()=>{
-              setIndex(0);
-            }}>본점</button>
-
-            <button onClick={()=>{
-              setIndex(1);
-            }}>지점1</button>
-
-            <button onClick={()=>{
-              setIndex(2);
-            }}>지점2</button>
+            {mapInfo.map((data, idx)=>{
+              return <button key={idx} onClick={()=>setIndex(idx)}>{data.title}</button>
+            })}
           </nav>
         </section>
       </div>
