@@ -10,7 +10,7 @@ export default function Join(){
     email: '',
     comments: '',
     gender: '',
-    interests: 0
+    interests: ''
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
@@ -106,13 +106,13 @@ export default function Join(){
       <div className="inner">
         <h1>Join</h1>
         <section>
-          { success ? <div>회원가입을 축하합니다.</div> : null }
+          { success ? <div className='success'>회원가입을 축하합니다.</div> : null }
           <form onSubmit={handleSubmit}>
             <fieldset>
-              <legend>회원가입 폼 양식</legend>
+              <legend className='h'>회원가입 폼 양식</legend>
 
-              <table border='1'>
-                <caption>회원가입 입력</caption>
+              <table>
+                <caption className='h'>회원가입 입력</caption>
                 <tbody>
                   {/* userid */}
                   <tr>
@@ -282,7 +282,7 @@ export default function Join(){
 
                   {/* btns */}
                   <tr>
-                    <th colSpan='2'>
+                    <th colSpan='2' className='btnSet'>
                       <input type="reset" value='CANCEL' />
                       <input type="submit" value='SEND' />
                     </th>
