@@ -12,6 +12,7 @@ export default function Join(){
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = e => {  
     const {name, value} = e.target; 
@@ -19,7 +20,8 @@ export default function Join(){
   } 
 
   const handleSubmit = e => {
-    e.preventDefault();  
+    e.preventDefault(); 
+    setIsSubmit(true); 
     setErr(check(val));  
   }  
 
@@ -57,7 +59,7 @@ export default function Join(){
     console.log(err);   
     const len = Object.keys(err).length;
     
-    if(len === 0){
+    if(len === 0 && isSubmit){
       console.log('모든 인풋요소 인증 통과');
     }else{
       console.log('인증 실패');
