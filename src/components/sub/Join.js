@@ -89,6 +89,7 @@ export default function Join(){
                         value={val.userid}
                         onChange={handleChange}
                       />
+                      <span className='err'>{err.userid}</span>
                     </td>
                   </tr>
 
@@ -106,6 +107,7 @@ export default function Join(){
                         value={val.pwd1}
                         onChange={handleChange} 
                       />
+                      <span className='err'>{err.pwd1}</span>
                     </td>
                   </tr>
 
@@ -123,6 +125,7 @@ export default function Join(){
                         value={val.pwd2}
                         onChange={handleChange} 
                       />
+                      <span className='err'>{err.pwd2}</span>
                     </td>
                   </tr>
 
@@ -140,6 +143,7 @@ export default function Join(){
                         value={val.email}
                         onChange={handleChange}
                       />
+                      <span className='err'>{err.email}</span>
                     </td>
                   </tr>
 
