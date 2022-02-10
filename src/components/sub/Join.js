@@ -4,34 +4,31 @@ export default function Join(){
   let main = useRef(null);
   
   const initVal = {
-    userid: ''
+    userid: '',
+    email: ''
   }
-
   const [val, setVal] = useState(initVal);
-  //인풋의 인증 실패시 출력될 에러메세지를 담을 state생성
   const [err, setErr] = useState({});
 
   const handleChange = e => {  
     const {name, value} = e.target; 
     setVal({...val, [name]: value});
-  }
+  } 
 
   const handleSubmit = e => {
-    e.preventDefault();
-    
-    //check함수에 인수로 기존 err state로 인수로 전달
+    e.preventDefault();  
     setErr(check(val));  
-  }
+  }  
 
   //에러 객체를 반환하는 함수
   const check = val => {
-    let errs = {}
-    //인수로 받은 value의 조건에 부합하면
-    if( !val.userid || val.userid.length<5 ){
-      //빈 err객체에 userid에 해당하는 에러객체를 추가
+    let errs = {}    
+    if( val.userid.length<5 ){      
       errs.userid = '아이디를 5글자 이상 입력하세요';
-    }   
-    //추가된 객체내용을 내보냄
+    } 
+    if( val.email.length<8 ){
+      errs.email = '이메일 주소는 8글자 이상 입력하세요';
+    }
     return errs;
   }
 
@@ -42,10 +39,15 @@ export default function Join(){
   //err state값이 변경될때마다 동작하는 함수
   useEffect(()=>{
     console.log(err);
+    //err객체의 key값의 갯수를 반환
+    const len = Object.keys(err).length;
+    
+    if(len === 0){
+      console.log('모든 인풋요소 인증 통과');
+    }else{
+      console.error('인증 실패');
+    }
   },[err]);
-
-
-
 
   return (
     <main className="content join" ref={main}>
@@ -73,6 +75,21 @@ export default function Join(){
                         name='userid'
                         placeholder='아이디를 입력하세요'                   
                         value={val.userid}
+                        onChange={handleChange}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>
+                      <label htmlFor="email">E-MAIL</label>
+                    </th>
+                    <td>
+                      <input 
+                        type="text" 
+                        id='email'
+                        name='email'
+                        placeholder='이메일 주소를 입력하세요'
+                        value={val.email}
                         onChange={handleChange}
                       />
                     </td>
