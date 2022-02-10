@@ -10,7 +10,7 @@ export default function Join(){
     email: '',
     comments: '',
     gender: '',
-    interests: ''
+    interests: 0
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
@@ -28,10 +28,20 @@ export default function Join(){
     setErr(check(val));  
   }  
 
-  const handleCheck = e => {    
+  const handleRadio = e => {    
     const {name} = e.target;
     const isCheck = e.target.checked;   
     setVal({...val, [name]: isCheck});
+  }
+
+  const handleCheck = e => {
+    let isChecked = false;
+    const {name} = e.target;
+    const inputs = e.target.parentElement.querySelectorAll('input');
+    inputs.forEach(el=>{
+      if(el.checked) isChecked=true;
+    });         
+    setVal({...val, [name]: isChecked});    
   }
 
   const  handleSelect = e => {
@@ -187,7 +197,7 @@ export default function Join(){
                         type="radio" 
                         id='male'
                         name='gender'
-                        onChange={handleCheck}
+                        onChange={handleRadio}
                       />
 
                       <label htmlFor="female">Female</label>
@@ -195,7 +205,7 @@ export default function Join(){
                         type="radio"
                         id='female'
                         name='gender'
-                        onChange={handleCheck} 
+                        onChange={handleRadio} 
                       />
 
                       <span className="err">{err.gender}</span>
