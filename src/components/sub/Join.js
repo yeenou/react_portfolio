@@ -7,7 +7,8 @@ export default function Join(){
     userid: '',
     pwd1: '',
     pwd2: '',
-    email: ''
+    email: '',
+    comments: ''
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
@@ -40,6 +41,9 @@ export default function Join(){
     }
     if( val.email.length<8 || !/@/.test(val.email) ){
       errs.email = '이메일 주소는 8글자 이상 @를 포함하세요';
+    }
+    if( val.comments.length<10 ){
+      errs.comments = '남기는 말을 10글자 이상입력하세요';
     }
     return errs;
   }
@@ -144,6 +148,24 @@ export default function Join(){
                         onChange={handleChange}
                       />
                       <span className='err'>{err.email}</span>
+                    </td>
+                  </tr>
+
+                  {/* comments */}
+                  <tr>
+                    <th>
+                      <label htmlFor="comments">LEAVE COMMENTS</label>
+                    </th>
+                    <td>
+                      <textarea 
+                        name="comments" 
+                        id="comments"
+                        value={val.comments} 
+                        onChange={handleChange}
+                        cols="30" rows="10"
+                      >
+                      </textarea>
+                      <span className="err">{err.comments}</span>
                     </td>
                   </tr>
 
