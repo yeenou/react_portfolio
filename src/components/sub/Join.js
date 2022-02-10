@@ -28,10 +28,16 @@ export default function Join(){
     setErr(check(val));  
   }  
 
-  const handleCheck = e => {
+  const handleCheck = e => {    
     const {name} = e.target;
-    const isCheck = e.target.checked;
+    const isCheck = e.target.checked;   
     setVal({...val, [name]: isCheck});
+  }
+
+  const  handleSelect = e => {
+    const {name} = e.target;
+    const isSelected = e.target.options[e.target.selectedIndex].value;
+    setVal({...val, [name]: isSelected});
   }
 
   //에러 객체를 반환하는 함수
@@ -61,6 +67,9 @@ export default function Join(){
     }
     if( !val.interests ){
       errs.interests= '관심사를 하나이상 선택하세요';
+    }
+    if( !val.edu ){
+      errs.edu= '학력을 선택해주세요';
     }
     return errs;
   }
@@ -223,6 +232,23 @@ export default function Join(){
                         onChange={handleCheck}
                       />
                       <span className="err">{err.interests}</span>
+                    </td>
+                  </tr>
+
+                  {/* edu */}
+                  <tr>
+                    <th scope='row'>
+                      <label htmlFor="edu">EDUCATION</label>
+                    </th>
+                    <td>
+                      <select name="edu" id="edu" onChange={handleSelect}>
+                        <option value="">학력을 선택하세요</option>
+                        <option value="elementary-school">초등학교 졸업</option>
+                        <option value="middle-school">중학교 졸업</option>
+                        <option value="high-school">고등학교 졸업</option>
+                        <option value="college">대학교 졸업</option>
+                      </select>
+                      <span className="err">{err.edu}</span>
                     </td>
                   </tr>
 
