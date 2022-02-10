@@ -5,6 +5,8 @@ export default function Join(){
   
   const initVal = {
     userid: '',
+    pwd1: '',
+    pwd2: '',
     email: ''
   }
   const [val, setVal] = useState(initVal);
@@ -22,12 +24,22 @@ export default function Join(){
 
   //에러 객체를 반환하는 함수
   const check = val => {
-    let errs = {}    
+    let errs = {}  
+    const eng = /[a-zA-Z]/;
+    const num = /[0-9]/;
+    const spc = /[~!@#$%^&*()_+\]\[]/;    
+
     if( val.userid.length<5 ){      
       errs.userid = '아이디를 5글자 이상 입력하세요';
     } 
-    if( val.email.length<8 ){
-      errs.email = '이메일 주소는 8글자 이상 입력하세요';
+    if( val.pwd1<5 || !eng.test(val.pwd1) || !num.test(val.pwd1) || !spc.test(val.pwd1)){
+      errs.pwd1= '비밀번호는 5글자 이상 문자,숫자,특수문자를 모두 포함하세요';
+    }
+    if( val.pwd1 !== val.pwd2 ){
+      errs.pwd2= '두개의 비밀번호를 동일하게 입력하세요';
+    }
+    if( val.email.length<8 || !/@/.test(val.email) ){
+      errs.email = '이메일 주소는 8글자 이상 @를 포함하세요';
     }
     return errs;
   }
@@ -38,14 +50,13 @@ export default function Join(){
 
   //err state값이 변경될때마다 동작하는 함수
   useEffect(()=>{
-    console.log(err);
-    //err객체의 key값의 갯수를 반환
+    console.log(err);   
     const len = Object.keys(err).length;
     
     if(len === 0){
       console.log('모든 인풋요소 인증 통과');
     }else{
-      console.error('인증 실패');
+      console.log('인증 실패');
     }
   },[err]);
 
@@ -64,6 +75,7 @@ export default function Join(){
               <table border='1'>
                 <caption>회원가입 입력</caption>
                 <tbody>
+                  {/* userid */}
                   <tr>
                     <th scope='row'>
                       <label htmlFor="userid">USER ID</label>
@@ -73,12 +85,48 @@ export default function Join(){
                         type="text" 
                         id='userid'
                         name='userid'
-                        placeholder='아이디를 입력하세요'                   
+                        placeholder='아이디를 입력하세요' 
                         value={val.userid}
                         onChange={handleChange}
                       />
                     </td>
                   </tr>
+
+                  {/* password */}
+                  <tr>
+                    <th>
+                      <label htmlFor="pwd1">PASSWORD</label>
+                    </th>
+                    <td>
+                      <input 
+                        type="password"
+                        id='pwd1'
+                        name='pwd1'
+                        placeholder='비밀번호를 입력하세요'
+                        value={val.pwd1}
+                        onChange={handleChange} 
+                      />
+                    </td>
+                  </tr>
+
+                  {/* re password */}
+                  <tr>
+                    <th>
+                      <label htmlFor="pwd2">RE-PASSWORD</label>
+                    </th>
+                    <td>
+                      <input 
+                        type="password"
+                        id='pwd2'
+                        name='pwd2'
+                        placeholder='비밀번호를 재 입력하세요'
+                        value={val.pwd2}
+                        onChange={handleChange} 
+                      />
+                    </td>
+                  </tr>
+
+                  {/* e-mail */}
                   <tr>
                     <th>
                       <label htmlFor="email">E-MAIL</label>
@@ -94,6 +142,8 @@ export default function Join(){
                       />
                     </td>
                   </tr>
+
+                  {/* btns */}
                   <tr>
                     <th colSpan='2'>
                       <input type="reset" value='CANCEL' />
