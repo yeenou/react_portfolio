@@ -9,7 +9,8 @@ export default function Join(){
     pwd2: '',
     email: '',
     comments: '',
-    gender: ''
+    gender: '',
+    interests: ''
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
@@ -57,6 +58,9 @@ export default function Join(){
     }
     if( !val.gender ){
       errs.gender= '성별을 선택하세요';
+    }
+    if( !val.interests ){
+      errs.interests= '관심사를 하나이상 선택하세요';
     }
     return errs;
   }
@@ -111,7 +115,7 @@ export default function Join(){
 
                   {/* password */}
                   <tr>
-                    <th>
+                    <th scope='row'>
                       <label htmlFor="pwd1">PASSWORD</label>
                     </th>
                     <td>
@@ -129,7 +133,7 @@ export default function Join(){
 
                   {/* re password */}
                   <tr>
-                    <th>
+                    <th scope='row'>
                       <label htmlFor="pwd2">RE-PASSWORD</label>
                     </th>
                     <td>
@@ -147,7 +151,7 @@ export default function Join(){
 
                   {/* e-mail */}
                   <tr>
-                    <th>
+                    <th scope='row'>
                       <label htmlFor="email">E-MAIL</label>
                     </th>
                     <td>
@@ -186,6 +190,39 @@ export default function Join(){
                       />
 
                       <span className="err">{err.gender}</span>
+                    </td>
+                  </tr>  
+                  
+                  {/* interests */}
+                  <tr>
+                    <th scope='row'>
+                      INTERESTS
+                    </th>
+                    <td>
+                      <label htmlFor="sports">Sports</label>
+                      <input 
+                        type="checkbox" 
+                        name='interests'
+                        id='sports'
+                        onChange={handleCheck}
+                      />
+
+                      <label htmlFor="sports">Music</label>
+                      <input 
+                        type="checkbox" 
+                        name='interests'
+                        id='music'
+                        onChange={handleCheck}
+                      />
+
+                      <label htmlFor="sports">Game</label>
+                      <input 
+                        type="checkbox" 
+                        name='interests'
+                        id='game'
+                        onChange={handleCheck}
+                      />
+                      <span className="err">{err.interests}</span>
                     </td>
                   </tr>
 
