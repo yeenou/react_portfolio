@@ -8,7 +8,8 @@ export default function Join(){
     pwd1: '',
     pwd2: '',
     email: '',
-    comments: ''
+    comments: '',
+    gender: ''
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
@@ -25,6 +26,12 @@ export default function Join(){
     setIsSubmit(true); 
     setErr(check(val));  
   }  
+
+  const handleCheck = e => {
+    const {name} = e.target;
+    const isCheck = e.target.checked;
+    setVal({...val, [name]: isCheck});
+  }
 
   //에러 객체를 반환하는 함수
   const check = val => {
@@ -47,6 +54,9 @@ export default function Join(){
     }
     if( val.comments.length<10 ){
       errs.comments = '남기는 말을 10글자 이상입력하세요';
+    }
+    if( !val.gender ){
+      errs.gender= '성별을 선택하세요';
     }
     return errs;
   }
@@ -150,6 +160,32 @@ export default function Join(){
                         onChange={handleChange}
                       />
                       <span className='err'>{err.email}</span>
+                    </td>
+                  </tr>
+
+                  {/* gender */}
+                  <tr>
+                    <th scope='row'>
+                      GENDER
+                    </th>
+                    <td>
+                      <label htmlFor="male">Male</label>
+                      <input 
+                        type="radio" 
+                        id='male'
+                        name='gender'
+                        onChange={handleCheck}
+                      />
+
+                      <label htmlFor="female">Female</label>
+                      <input 
+                        type="radio"
+                        id='female'
+                        name='gender'
+                        onChange={handleCheck} 
+                      />
+
+                      <span className="err">{err.gender}</span>
                     </td>
                   </tr>
 
