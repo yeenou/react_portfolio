@@ -9,8 +9,9 @@ export default function Join(){
     pwd2: '',
     email: '',
     comments: '',
-    gender: '',
-    interests: ''
+    gender: false,
+    interests: false,
+    edu: false
   }
   const [val, setVal] = useState(initVal);
   const [err, setErr] = useState({});
@@ -26,7 +27,13 @@ export default function Join(){
     e.preventDefault(); 
     setIsSubmit(true); 
     setErr(check(val));  
-  }  
+  } 
+  
+  const handleReset = () => {
+    setVal(initVal);
+    setErr({});
+    setIsSubmit(false);
+  }
 
   const handleRadio = e => {    
     const {name} = e.target;
@@ -93,11 +100,13 @@ export default function Join(){
     const len = Object.keys(err).length;
     
     if(len === 0 && isSubmit){     
-      setSuccess(true);
+      setSuccess(true);                
     }else{
       setSuccess(false);
     }
   },[err]);
+
+
 
   return (
     <main className="content join" ref={main}>
@@ -283,7 +292,7 @@ export default function Join(){
                   {/* btns */}
                   <tr>
                     <th colSpan='2' className='btnSet'>
-                      <input type="reset" value='CANCEL' />
+                      <input type="reset" value='CANCEL' onClick={handleReset} />
                       <input type="submit" value='SEND' />
                     </th>
                   </tr>
