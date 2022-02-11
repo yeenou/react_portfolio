@@ -40,6 +40,25 @@ export default function Community(){
     )
     console.log(posts);
   }
+
+  //기존 state값을 인수로 받은 순번의 포스트값만 enableUpdate=false로 변경해서
+  //출력모드 상태로 변경해주는 함수
+  const disableUpdate = index => {
+    setPosts( 
+      posts.map((post, idx)=>{        
+        if(idx===index) post.enableUpdate=false;
+        return post;
+      })
+    )
+    console.log(posts);
+  }
+
+  //실제 post 업데이트 함수
+  const updatePost = index => {
+
+  }
+
+
   
 
   useEffect(()=>{    
@@ -91,8 +110,8 @@ export default function Community(){
                       </div>                  
                       
                       <div className="btns">                    
-                        <button onClick={()=>enableUpdate(idx)}>modify</button>
-                        <button onClick={()=>deletePost(idx)}>delete</button>
+                        <button onClick={()=>updatePost(idx)}>update</button>
+                        <button onClick={()=>disableUpdate(idx)}>cancel</button>
                       </div>
                     </>
                     :
