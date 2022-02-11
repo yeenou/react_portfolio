@@ -6,8 +6,10 @@ export default function Community(){
   const textarea = useRef(null);
   const showBox = useRef(null);
   const [posts, setPosts] = useState([
-    {title: 'Hello', content: 'Here comes description in detail.'},
-    {title: 'Hello2', content: 'Here comes description in detail2.'},
+    {title: 'Hello1', content: 'Here comes description in detail.'},
+    {title: 'Hello2', content: 'Here comes description in detail.'},
+    {title: 'Hello3', content: 'Here comes description in detail.'},
+    {title: 'Hello4', content: 'Here comes description in detail.'},
   ]);
 
   const createPost=()=>{   
@@ -22,14 +24,22 @@ export default function Community(){
     input.current.value= '';
     textarea.current.value= '';
   }
-
-  //순번으로 받은 게시글만 삭제하는 함수
+ 
   const deletePost = index => {
-    setPosts(
-      //기본 배열을 받아서 조건식을 통해 특정 조건이 성립하는 데이터만 필러팅해서 다시 새롭게 반환하는 함수
+    setPosts(     
       posts.filter((_, idx) => idx !== index)
-      //현재 반복돌고 있는 post의 순번이랑 인수로 받은 삭제포스트의 순번이 같은 것만 반환
     )
+  }
+
+  //인수로 수정모드 변경할 포스트의 순서값 받아서 해당 순번의 state값만 수정가능한 형태로 정보값 변경
+  const enableUpdate = index => {
+    setPosts(
+      posts.map((post, idx)=>{
+        if(idx===index) post.enableUpdate=true;
+        return post;
+      })
+    )
+    console.log(posts);
   }
   
 
@@ -58,14 +68,12 @@ export default function Community(){
               ref={textarea}
             >
             </textarea><br />
-
-            {/* 초기화 버튼 클릭시 입력창 비움 */}
+          
             <button onClick={()=>{
               input.current.value='';
               textarea.current.value='';
             }}>cancel</button>
-
-            {/* 저장 버튼 클릭시 createPost함수호출 */}
+        
             <button onClick={createPost}>create</button>
           </div>
           
@@ -76,8 +84,9 @@ export default function Community(){
                   <h2>{post.title}</h2>
                   <p>{post.content}</p>
 
-                  <div className="btns">
-                    {/* 삭제버튼 클릭시 현재 게시글의 순번을 인수로 전달 */}
+                  <div className="btns"> 
+                    {/* 수정버튼시 수정모드로 변경해주는 함수 호출 */}
+                    <button onClick={()=>enableUpdate(idx)}>modify</button>
                     <button onClick={()=>deletePost(idx)}>delete</button>
                   </div>
                 </article>
