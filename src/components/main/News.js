@@ -20,12 +20,14 @@ export default function News(){
         
         <ul>
           {posts.map((post, idx)=>{
-            return (
-              <li key={idx}>
-                <h2>{post.title}</h2>
-                <p>{post.content}</p>
-              </li>
-            )
+            if(idx < 4) {
+              return (              
+                <li key={idx}>
+                  <h2>{post.title}</h2>
+                  <p>{post.content}</p>
+                </li>
+              )
+            }            
           })}
         </ul>
       </div>
