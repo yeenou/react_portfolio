@@ -41,8 +41,6 @@ export default function Community(){
     console.log(posts);
   }
 
-  //기존 state값을 인수로 받은 순번의 포스트값만 enableUpdate=false로 변경해서
-  //출력모드 상태로 변경해주는 함수
   const disableUpdate = index => {
     setPosts( 
       posts.map((post, idx)=>{        
@@ -55,7 +53,19 @@ export default function Community(){
 
   //실제 post 업데이트 함수
   const updatePost = index => {
-
+    setPosts(
+      posts.map((post, idx)=>{
+        if(idx===index){
+          const article = showBox.current.children[index];
+          const input = article.querySelector('input');
+          const textarea = article.querySelector('textarea');
+          post.title = input.value;
+          post.content = textarea.value;
+          post.enableUpdate = false;
+        }
+        return post;
+      })
+    )
   }
 
 
