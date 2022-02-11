@@ -34,7 +34,9 @@ export default function Community(){
   //인수로 수정모드 변경할 포스트의 순서값 받아서 해당 순번의 state값만 수정가능한 형태로 정보값 변경
   const enableUpdate = index => {
     setPosts(
+      //기존 posts를 반복 돌면서
       posts.map((post, idx)=>{
+        //현재 반복도는 post순번가 인수로 받은 수정해야 될 순번이 같으면 해당 post에만 enableUpdate=true라는 값을 추가해서 해당 post만 기존 posts에 덮어쓰기 해서 기존 posts state값 변경
         if(idx===index) post.enableUpdate=true;
         return post;
       })
