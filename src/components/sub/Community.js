@@ -7,13 +7,22 @@ export default function Community(){
   const showBox = useRef(null);
   const updateInput = useRef(null);
   const updateTextarea = useRef(null);   
-  const [posts, setPosts] = useState([
-    {title: 'Hello1', content: 'Here comes description in detail.'},
-    {title: 'Hello2', content: 'Here comes description in detail.'},
-    {title: 'Hello3', content: 'Here comes description in detail.'},
-    {title: 'Hello4', content: 'Here comes description in detail.'},
-  ]);
   
+  const getLocalItems = () => {
+    let data = localStorage.getItem('posts');
+    //만약 로컬저장소에 posts키값의 데이터가 있으면
+    if(data){
+      //해당 데이터를 객체형태로 다시 변환해서 리턴
+      return JSON.parse(data);
+    }
+    //로컬 저장소에 데이터가 없을때 (해당 컴포넌트가 첨 로딩시)
+    else {
+      return [];
+    }
+  }
+  
+  //getLocalItems의 리턴값에 따라 posts에 값이 할당됨
+  const [posts, setPosts] = useState(getLocalItems)
 
   const createPost=()=>{ 
     const inputVal = input.current.value.trim();
