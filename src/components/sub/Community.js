@@ -5,6 +5,8 @@ export default function Community(){
   const input = useRef(null);
   const textarea = useRef(null);
   const showBox = useRef(null);
+  const updateInput = useRef(null);
+  const updateTextarea = useRef(null);
   const [posts, setPosts] = useState([
     {title: 'Hello1', content: 'Here comes description in detail.'},
     {title: 'Hello2', content: 'Here comes description in detail.'},
@@ -55,12 +57,9 @@ export default function Community(){
   const updatePost = index => {
     setPosts(
       posts.map((post, idx)=>{
-        if(idx===index){
-          const article = showBox.current.children[index];
-          const input = article.querySelector('input');
-          const textarea = article.querySelector('textarea');
-          post.title = input.value;
-          post.content = textarea.value;
+        if(idx===index){      
+          post.title = updateInput.current.value;
+          post.content = updateTextarea.current.value;
           post.enableUpdate = false;
         }
         return post;
@@ -115,8 +114,16 @@ export default function Community(){
                     // 수정모드 일때 리턴될 JSX
                     <>
                       <div className="post">
-                        <input type="text" defaultValue={post.title} /><br />
-                        <textarea defaultValue={post.content}></textarea><br />
+                        <input 
+                          type="text" 
+                          defaultValue={post.title} 
+                          ref={updateInput}
+                        /><br />
+                        <textarea 
+                          defaultValue={post.content}
+                          ref={updateTextarea}
+                        >
+                          </textarea><br />
                       </div>                  
                       
                       <div className="btns">                    
