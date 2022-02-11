@@ -6,13 +6,14 @@ export default function Community(){
   const textarea = useRef(null);
   const showBox = useRef(null);
   const updateInput = useRef(null);
-  const updateTextarea = useRef(null);
+  const updateTextarea = useRef(null);   
   const [posts, setPosts] = useState([
     {title: 'Hello1', content: 'Here comes description in detail.'},
     {title: 'Hello2', content: 'Here comes description in detail.'},
     {title: 'Hello3', content: 'Here comes description in detail.'},
     {title: 'Hello4', content: 'Here comes description in detail.'},
   ]);
+  
 
   const createPost=()=>{ 
     const inputVal = input.current.value.trim();
@@ -84,6 +85,13 @@ export default function Community(){
   useEffect(()=>{    
     main.current.classList.add('on');    
   },[])
+
+  //posts값이 변경될때마사 실행될 hook
+  useEffect(()=>{
+    console.log('posts state변경됨')
+    //로컬스토리지에 posts키값으로 기존데이터를 문자형태로 변환해서 저장
+    localStorage.setItem('posts', JSON.stringify(posts))
+  },[posts]);
   
   return (
     <main className="content community" ref={main}>
