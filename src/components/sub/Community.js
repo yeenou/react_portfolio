@@ -14,7 +14,14 @@ export default function Community(){
     {title: 'Hello4', content: 'Here comes description in detail.'},
   ]);
 
-  const createPost=()=>{   
+  const createPost=()=>{ 
+    const inputVal = input.current.value.trim();
+    const textareaVal = textarea.current.value.trim();
+    
+    if( !inputVal || !textareaVal || inputVal==='' || textareaVal==='' ){
+      alert('제목과 본문을 입력하세요.')
+      return;
+    }  
     setPosts([      
       {
         title: input.current.value,
@@ -22,11 +29,11 @@ export default function Community(){
       },
       ...posts
     ])
- 
+
     input.current.value= '';
     textarea.current.value= '';
   }
- 
+
   const deletePost = index => {
     setPosts(     
       posts.filter((_, idx) => idx !== index)
@@ -55,6 +62,13 @@ export default function Community(){
 
   //실제 post 업데이트 함수
   const updatePost = index => {
+    const inputVal2 = updateInput.current.value.trim();
+    const textareaVal2 = updateTextarea.current.value.trim();
+    
+    if( !inputVal2 || !textareaVal2 || inputVal2==='' || textareaVal2==='' ){
+      alert('수정할 제목과 본문을 입력하세요.')
+      return;
+    }  
     setPosts(
       posts.map((post, idx)=>{
         if(idx===index){      
@@ -65,10 +79,7 @@ export default function Community(){
         return post;
       })
     )
-  }
-
-
-  
+  }  
 
   useEffect(()=>{    
     main.current.classList.add('on');    
