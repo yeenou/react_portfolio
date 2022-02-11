@@ -83,6 +83,7 @@ export default function Community(){
                   {
                     post.enableUpdate
                     ?
+                    // 수정모드 일때 리턴될 JSX
                     <>
                       <div className="post">
                         <input type="text" defaultValue={post.title} /><br />
@@ -95,6 +96,7 @@ export default function Community(){
                       </div>
                     </>
                     :
+                    // 출력모드 일때 리턴될 JSX
                     <>
                       <div className="post">
                         <h2>{post.title}</h2>
