@@ -5,11 +5,23 @@ export default function Community(){
   const input = useRef(null);
   const textarea = useRef(null);
   const showBox = useRef(null);
-
   const [posts, setPosts] = useState([
     {title: 'Hello', content: 'Here comes description in detail.'},
     {title: 'Hello2', content: 'Here comes description in detail2.'},
-  ])
+  ]);
+
+  const createPost=()=>{
+    setPosts([
+      ...posts,
+      {
+        title: input.current.value,
+        content: textarea.current.value
+      }
+    ])
+
+    input.current.value= '';
+    textarea.current.value= '';
+  }
   
 
   useEffect(()=>{    
@@ -38,8 +50,12 @@ export default function Community(){
             >
             </textarea><br />
           
-            <button>cancel</button>
-            <button>create</button>
+            <button onClick={()=>{
+              input.current.value='';
+              textarea.current.value='';
+            }}>cancel</button>
+
+            <button onClick={createPost}>create</button>
           </div>
           
           <div className="showList" ref={showBox}>
