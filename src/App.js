@@ -10,7 +10,6 @@ import Join from './components/sub/Join';
 import { Route, Switch } from 'react-router-dom';
 import './scss/style.scss';
 
-
 export default function App() {
   return (
     <div className="App">   
@@ -30,9 +29,3 @@ export default function App() {
     </div>
   );
 }
-
-/*
-  각 라우터를 Switch로 컴포넌트로 감싸놓으면
-  중첩되는 경로가 있을때 상단에 있는 경로만 적용하고 그 이후는 무시
-  Switch를 활용할때에는 중첩되는 url경로중 디테일한 요소를 보통 위쪽에 배치해서 route를 세분화
-*/
