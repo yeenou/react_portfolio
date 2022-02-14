@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useEffect, useRef, useState } from "react";
 
 export default function Gallery(){ 
-  let main = useRef(null);
+  const main = useRef(null);
+  const frame = useRef(null);
   const [items, setItems] = useState([]);
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0);
@@ -11,12 +12,19 @@ export default function Gallery(){
   const num = 20;
   const url = `https://www.flickr.com/services/rest/?method=${method1}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1`;
 
+  //promise객체를 리턴하는 함수를 wrapping함수로 감싸주고 앞쪽에  async를 붙임
+  //그안쪽에 axios메서드 앞쪽에 await를 붙이면 그다음에 나오는 코드는 무조건 axios가 끝난 이후에 동기적으로 실행됨
+  const getFlickr = async ()=>{
+    await axios.get(url).then(json=>{   
+      setItems(json.data.photos.photo);
+    })
+    frame.current.classList.add('on');
+  }
+
   useEffect(()=>{
     main.current.classList.add('on');
 
-    axios.get(url).then(json=>{   
-      setItems(json.data.photos.photo);
-    })
+    getFlickr();
   },[]);
 
   return (
@@ -26,7 +34,7 @@ export default function Gallery(){
       
       <div className="inner">
         <h1>Gallery</h1>
-        <section>
+        <section ref={frame}>
           {items.map((item,idx)=>{
             return (
               <article key={idx}>
