@@ -1,6 +1,6 @@
 export default function Info(){
   return (
-    <section id='info'>
+    <section id='info' className='myScroll'>
       <div className="inner">
         <h1>Information</h1>
        

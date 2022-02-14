@@ -1,7 +1,7 @@
 export default function Btns(){
   return (
     <ul id='btns'>
-      <li></li>
+      <li className='on'></li>
       <li></li>
       <li></li>
       <li></li>
