@@ -52,3 +52,25 @@
     font: bold 14px/1 'arial'; color: #fff; position: absolute; top: 4vh; right: 5vw; cursor: pointer;
   }
 }
+
+@media screen and (max-width: 1179px){
+  .gallery {
+    .item {width: 25%!important;}
+  }
+}
+
+@media screen and (max-width: 899px){
+  .gallery {
+    .item {width: 33.333%!important;}
+  }
+}
+@media screen and (max-width: 739px){
+  .gallery {
+    .item {width: 50%!important;}
+  }
+}
+@media screen and (max-width: 479px){
+  .gallery {
+    .item {width: 100%!important;}
+  }
+}

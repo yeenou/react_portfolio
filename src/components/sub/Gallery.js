@@ -43,7 +43,7 @@ export default function Gallery(){
       setTimeout(()=>{
         setEnableClick(true);
       },1000)//frame에 on이 붙어서 올라오는 모션동안 방지
-    },500)//masonry ui 모션이 적용되는 시간동안 방지  
+    },1000)//masonry ui 모션이 적용되는 시간동안 방지  
   }
   
   useEffect(()=>{
