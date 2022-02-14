@@ -1,7 +1,7 @@
-export default function Visual(){
+export default function Visual(){ 
   return (
     <figure>
-           
+      
     </figure>
   )
 }
