@@ -8,7 +8,7 @@ export default function Visual(){
   return (
     <figure className='myScroll'>
       <Swiper
-      modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination]}
         spaceBetween={0}
         slidesPerView={'auto'}   
         loop  
