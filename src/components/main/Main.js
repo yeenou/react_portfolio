@@ -24,10 +24,28 @@ export default function Main(){
     pos.current = arr; 
   }
 
+  const activation = () => {
+    const base = -200;
+    let scroll = window.scrollY;
+    const btns = main.current.querySelectorAll('#btns li');
+
+    pos.current.map((pos, idx)=>{
+      if(scroll >= pos+base ){
+        for(const btn of btns) btn.classList.remove('on');
+        btns[idx].classList.add('on');
+      }
+    })
+  }
+
   useEffect(()=>{   
     getPos();   
-    window.addEventListener('resize', getPos);   
-    return ()=> window.removeEventListener('resize', getPos);
+    window.addEventListener('resize', getPos);  
+    window.addEventListener('scroll', activation);
+
+    return ()=> {
+      window.removeEventListener('resize', getPos);
+      window.removeEventListener('scroll', activation);
+    } 
   },[]);
 
   //index값이 변경될때마다 실행될 useEffect추가
