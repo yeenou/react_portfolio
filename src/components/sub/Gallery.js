@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from "react";
+import Masonry from 'react-masonry-component';
 
 export default function Gallery(){ 
   const main = useRef(null);
@@ -14,16 +15,20 @@ export default function Gallery(){
   const url1 = `https://www.flickr.com/services/rest/?method=${method1}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1`;
   const url2 = `https://www.flickr.com/services/rest/?method=${method2}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1&tags=ocean`;
 
-  //promise객체를 리턴하는 함수를 wrapping함수로 감싸주고 앞쪽에  async를 붙임
-  //그안쪽에 axios메서드 앞쪽에 await를 붙이면 그다음에 나오는 코드는 무조건 axios가 끝난 이후에 동기적으로 실행됨
+  const masonryOptions = {
+    fitWidth: false,
+    gutter: 0,
+    itemSelector: '.item',
+    transitionDuration: '0.5s'
+  }
+
   const getFlickr = async url =>{
     await axios.get(url).then(json=>{   
       setItems(json.data.photos.photo);
     })
     frame.current.classList.add('on');
   }
-
-
+  
   useEffect(()=>{
     main.current.classList.add('on');
     getFlickr(url1);
@@ -34,7 +39,7 @@ export default function Gallery(){
     <main className="content gallery" ref={main}>
       <figure></figure>
       
-      <div className="inner">
+      <div className="inner">     
         <h1 onClick={()=>{
           frame.current.classList.remove('on');
           getFlickr(url1);
@@ -46,9 +51,13 @@ export default function Gallery(){
         }}>ocean 갤러리 보기</button>
         
         <section ref={frame}>
+          <Masonry 
+            elementType={'div'}
+            options={masonryOptions}
+          >
           {items.map((item,idx)=>{
             return (
-              <article key={idx}>
+              <article key={idx} className='item'>
                 <div className="inner">
                   <div className="pic" data={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} onClick={()=>{
                     setIsPop(true);
@@ -62,6 +71,7 @@ export default function Gallery(){
               </article>
             )            
           })}
+          </Masonry>
         </section>
       </div>
     </main>
