@@ -32,7 +32,14 @@ export default function Main(){
 
   //index값이 변경될때마다 실행될 useEffect추가
   useEffect(()=>{
-    console.log(index);
+
+    //index값이 변경될때하마 해당 순번의 위치로 스크롤 이동
+    new Anime(window, {
+      prop: 'scroll',
+      value: pos.current[index],
+      duration: 500
+    })
+
   },[index])
 
   return (
