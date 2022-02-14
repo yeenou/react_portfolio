@@ -9,6 +9,7 @@ export default function Gallery(){
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
   const [loading, setLoading] = useState(true);
+  const [enableClick, setEnableClick] = useState(true);
   const getURL = () =>{
     const api_key = '89aae050d1d8c006bdb5bf866029199d';
     const method1 = 'flickr.interestingness.getList';
@@ -39,7 +40,10 @@ export default function Gallery(){
     setTimeout(()=>{
       frame.current.classList.add('on');
       setLoading(false);
-    },1000)    
+      setTimeout(()=>{
+        setEnableClick(true);
+      },1000)//frame에 on이 붙어서 올라오는 모션동안 방지
+    },500)//masonry ui 모션이 적용되는 시간동안 방지  
   }
   
   useEffect(()=>{
@@ -54,15 +58,22 @@ export default function Gallery(){
       
       <div className="inner">     
         <h1 onClick={()=>{
-          setLoading(true);
-          frame.current.classList.remove('on');
-          getFlickr(url1);
+          if(enableClick){
+            setEnableClick(false);
+            setLoading(true);
+            frame.current.classList.remove('on');
+            getFlickr(url1);
+          }          
         }}>Gallery</h1>
 
         <button onClick={()=>{
-          setLoading(true);
-          frame.current.classList.remove('on');
-          getFlickr(url2);
+          if(enableClick){
+            setEnableClick(false);
+            setLoading(true);
+            frame.current.classList.remove('on');
+            getFlickr(url2);
+          }
+          
         }}>ocean 갤러리 보기</button>
         
         {loading ? <img className='loading' src={path+'/img/loading.gif'} /> : null}
