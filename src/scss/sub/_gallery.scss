@@ -2,6 +2,10 @@
   background: #efefef;
 
   .inner {
+
+    .loading {
+      position: absolute; top: 0px; left: 50%; width: 50%; transform: translateX(-50%);
+    }
     >section {
       transform: translateY(200px); opacity: 0;
       transition: 1s;
