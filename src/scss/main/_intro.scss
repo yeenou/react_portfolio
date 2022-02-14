@@ -15,14 +15,17 @@
         fill: transparent;
         stroke: #000;
         stroke-width: 5;
-        stroke-dasharray: 1000;
-        stroke-dashoffset: 1000;
-        transition: all 2s;
+        stroke-dasharray: 1000; //path의 비어있는 공간크기: 빈칸의 크기와 그어지는 선의 크리는 비례해서 증가
+        stroke-dashoffset: 1000; //가시영역에서의 선의 시작위치
+        transition: fill 1s 0s, stroke-dashoffset 2s 1s;  
+        
       }
 
       &:hover {
         path{
-          stroke-dashoffset: 0;         
+          stroke-dashoffset: 0;  
+          fill: rgba(0,0,0,.7); 
+          transition: stroke-dashoffset 2s 0s, fill 1s 2s;    
         } 
       }
     }
