@@ -34,8 +34,12 @@ export default function Gallery(){
       url = `https://www.flickr.com/services/rest/?method=${method2}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1&tags=${opt.tags}`;
     }  
 
-    await axios.get(url).then(json=>{   
-      setItems(json.data.photos.photo);
+    await axios.get(url).then(json=>{ 
+      if(json.data.photos.photo.length === 0){
+        alert('해당 검색어의 이미지가 없습니다.');
+        return;
+      }
+      setItems(json.data.photos.photo);            
     })
 
     setTimeout(()=>{
@@ -60,8 +64,30 @@ export default function Gallery(){
     }
   }
 
-  const showSearch = (e) => { 
+  const showSearchEnter = (e) => { 
     if(e.key !== 'Enter') return;   
+    let result = input.current.value;
+    input.current.value='';
+
+    if(result === ''){
+      alert('검색어를 입력하세요.');
+      return;
+    } 
+
+    if(enableClick){
+      setEnableClick(false);
+      setLoading(true);
+      frame.current.classList.remove('on');
+
+      getFlickr({
+        type: 'search',
+        count: 500,
+        tags: result
+      });
+    }
+  }
+
+  const showSearch = () => {     
     let result = input.current.value;
     input.current.value='';
 
@@ -103,7 +129,7 @@ export default function Gallery(){
           <h1 onClick={showInterest}>Gallery</h1>        
           
           <div className="searchBox">
-            <input type="text" ref={input} onKeyUp={showSearch} />
+            <input type="text" ref={input} onKeyUp={showSearchEnter} />
             <button onClick={showSearch}>search</button>
           </div>
           
