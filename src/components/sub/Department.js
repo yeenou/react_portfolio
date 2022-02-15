@@ -1,19 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 export default function Department(){
   let main = useRef(null);  
-  const [members, setMembers] = useState([]); 
-  const path = process.env.PUBLIC_URL; 
-  const url = `${path}/db/department.json`;
+  const members = useSelector(state=> state.departmentReducer.members);  
+  const path = process.env.PUBLIC_URL;
 
   useEffect(()=>{  
-    main.current.classList.add('on');   
-    axios
-      .get(url).then(json=>{ 
-        console.log(json.data.data);      
-        setMembers(json.data.data);
-      });
+    main.current.classList.add('on'); 
   },[]);
 
   return (
@@ -23,14 +17,14 @@ export default function Department(){
       <div className="inner">
         <h1>Department</h1>
         <section>
-          {members.map( (data,idx) => {
+          {members.map((member, idx)=>{
             return (
               <article key={idx}>
-                <img src={`${path}/img/${data.pic}`} />
-                <h2>{data.name}</h2>
-                <p>{data.position}</p>
+                <img src={`${path}/img/${member.pic}`} />
+                <h2>{member.name}</h2>
+                <p>{member.position}</p>
               </article>
-            )
+            )            
           })}
         </section>
       </div>
