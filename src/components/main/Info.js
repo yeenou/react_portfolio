@@ -19,7 +19,7 @@ export default function Info(){
             loop  
             navigation 
             centeredSlides={true}
-            grabcursor
+            grabCursor={true}
             pagination={{clickable:true}}
             effect= {'coverflow'}
             coverflowEffect={{

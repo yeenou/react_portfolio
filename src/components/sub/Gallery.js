@@ -52,8 +52,9 @@ export default function Gallery(){
     },1000)
   }
 
-  const showInterest = () =>{
+  const showInterest = () =>{  
     if(enableClick && !isInterest){
+      setIsInterest(true);
       setEnableClick(false);
       setLoading(true);
       frame.current.classList.remove('on');
