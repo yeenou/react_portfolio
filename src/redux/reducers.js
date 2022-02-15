@@ -35,7 +35,7 @@ const departmentReducer = (state=initMember, action) => {
 }
 
 //여러개의 reducer들을 하나로 합쳐서 반환
-const reducers = combindReducers({
+const reducers = combineReducers({
   departmentReducer
 })
 
