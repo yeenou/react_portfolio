@@ -9,18 +9,7 @@ export default function Gallery(){
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
   const [loading, setLoading] = useState(true);
-  const [enableClick, setEnableClick] = useState(true);
-  const getURL = () =>{
-    const api_key = '89aae050d1d8c006bdb5bf866029199d';
-    const method1 = 'flickr.interestingness.getList';
-    const method2 = 'flickr.photos.search'
-    const num = 20;
-    const url1 = `https://www.flickr.com/services/rest/?method=${method1}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1`;
-    const url2 = `https://www.flickr.com/services/rest/?method=${method2}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1&tags=ocean`;
-
-    return [url1, url2];
-  }
-  const [url1, url2] = getURL();  
+  const [enableClick, setEnableClick] = useState(true); 
   const path = process.env.PUBLIC_URL;
 
   const masonryOptions = {
@@ -30,7 +19,21 @@ export default function Gallery(){
     transitionDuration: '0.5s'
   }
 
-  const getFlickr = async url =>{
+  const getFlickr = async opt =>{
+
+    const api_key = '89aae050d1d8c006bdb5bf866029199d';
+    const method1 = 'flickr.interestingness.getList';
+    const method2 = 'flickr.photos.search'
+    const num = opt.count;
+    let url = '';
+
+    if(opt.type === 'interest'){
+      url = `https://www.flickr.com/services/rest/?method=${method1}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1`;
+    }
+    if(opt.type === 'search'){
+      url = `https://www.flickr.com/services/rest/?method=${method2}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1&tags=${opt.tags}`;
+    }  
+
     await axios.get(url).then(json=>{   
       setItems(json.data.photos.photo);
     })
@@ -46,7 +49,12 @@ export default function Gallery(){
   
   useEffect(()=>{
     main.current.classList.add('on');
-    getFlickr(url1);
+
+    getFlickr({
+      type: 'interest',
+      count: 500
+    });
+
   },[]);
 
   return (
@@ -61,7 +69,11 @@ export default function Gallery(){
               setEnableClick(false);
               setLoading(true);
               frame.current.classList.remove('on');
-              getFlickr(url1);
+
+              getFlickr({
+                type: 'interest',
+                count: 500
+              });
             }          
           }}>Gallery</h1>
         
@@ -70,7 +82,12 @@ export default function Gallery(){
               setEnableClick(false);
               setLoading(true);
               frame.current.classList.remove('on');
-              getFlickr(url2);
+
+              getFlickr({
+                type: 'search',
+                count: 500,
+                tags: 'landscape'
+              });
             }
             
           }}>ocean 갤러리 보기</button>
