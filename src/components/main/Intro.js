@@ -13,7 +13,7 @@ export default function Intro(){
           {members.map((member,idx)=>{
             return (
               <li key={idx}>
-                <div class='pic'>
+                <div className='pic'>
                   <img src={`${path}/img/${member.pic}`} />
                 </div>
                 <h2>{member.name}</h2>
