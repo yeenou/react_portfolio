@@ -11,6 +11,7 @@ export default function Gallery(){
   const [index, setIndex] = useState(0); 
   const [loading, setLoading] = useState(true);
   const [enableClick, setEnableClick] = useState(true); 
+  const [isInterest, setIsInterest] = useState(true);
   const path = process.env.PUBLIC_URL;
 
   const masonryOptions = {
@@ -52,7 +53,7 @@ export default function Gallery(){
   }
 
   const showInterest = () =>{
-    if(enableClick){
+    if(enableClick && !isInterest){
       setEnableClick(false);
       setLoading(true);
       frame.current.classList.remove('on');
@@ -75,6 +76,7 @@ export default function Gallery(){
     } 
 
     if(enableClick){
+      setIsInterest(false);
       setEnableClick(false);
       setLoading(true);
       frame.current.classList.remove('on');
@@ -89,7 +91,9 @@ export default function Gallery(){
 
   const showSearch = () => {     
     let result = input.current.value;
+    result = result.trim();
     input.current.value='';
+    
 
     if(result === ''){
       alert('검색어를 입력하세요.');
@@ -97,6 +101,7 @@ export default function Gallery(){
     } 
 
     if(enableClick){
+      setIsInterest(false);
       setEnableClick(false);
       setLoading(true);
       frame.current.classList.remove('on');
