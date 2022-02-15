@@ -3,6 +3,7 @@ import Visual from './Visual';
 import Intro from './Intro';
 import News from './News';
 import Info from './Info';
+import Pics from './Pics';
 import Btns from './Btns';
 import Anime from '../../class/anime.js';
 import { useEffect, useRef, useState } from 'react';
@@ -66,8 +67,8 @@ export default function Main(){
       <Visual />
       <Intro />
       <News />
-      <Info />
-      {/* Btns 자식 컴포넌트에 getIndex함수를 prop으로 전달 */}
+      <Info />    
+      <Pics />
       <Btns getIndex={getIndex} />
     </div>
   )

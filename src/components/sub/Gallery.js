@@ -1,18 +1,23 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from 'react-redux';
 import Masonry from 'react-masonry-component';
 
 export default function Gallery(){ 
   const main = useRef(null);
   const frame = useRef(null);
   const input = useRef(null);
-  const [items, setItems] = useState([]);
+  //처름 서브 gallery 컴포넌트 호출시 이미 main에서 데이터가 적용된 flickrReducer데이터 가져오기
+  const initPic = useSelector(state=>state.flickrReducer.flickr);
+
+  const [items, setItems] = useState(initPic);
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
   const [loading, setLoading] = useState(true);
   const [enableClick, setEnableClick] = useState(true); 
   const [isInterest, setIsInterest] = useState(true);
   const path = process.env.PUBLIC_URL;
+  console.log(items);
 
   const masonryOptions = {
     fitWidth: false,
@@ -115,14 +120,16 @@ export default function Gallery(){
     }
   }
   
-  useEffect(()=>{
+  //처음 컴포넌트 렌더링시
+  useEffect(()=>{    
     main.current.classList.add('on');
-
-    getFlickr({
-      type: 'interest',
-      count: 500
-    });
-
+    //isInterest값을 true로 변경하고
+    setIsInterest(true);
+    //로딩바 숨김처리
+    setLoading(false);    
+    //갤러리 프레임 보임
+    frame.current.classList.add('on');
+    
   },[]);
 
   return (

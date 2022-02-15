@@ -39,8 +39,17 @@ const youtubeReducer = (state={youtube: []}, action) => {
   }
 }
 
+const flickrReducer = (state={flickr: []}, action) => {
+  switch (action.type) {
+    case 'SET_FLICKR' :
+      return {...state, flickr: action.payload}
+    default : 
+      return state;
+  }
+}
+
 const reducers = combineReducers({
-  departmentReducer, youtubeReducer
+  departmentReducer, youtubeReducer, flickrReducer
 })
 
 export default reducers;
