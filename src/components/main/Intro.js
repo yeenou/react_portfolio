@@ -1,8 +1,27 @@
+import { useSelector } from 'react-redux';
+
 export default function Intro(){
+  const members = useSelector(state=> state.departmentReducer.members);  
+  const path = process.env.PUBLIC_URL;
+
   return (
     <section id='intro' className='myScroll'>
       <div className="inner">
         <h1>Introduction</h1>
+
+        <ul>
+          {members.map((member,idx)=>{
+            return (
+              <li key={idx}>
+                <div class='pic'>
+                  <img src={`${path}/img/${member.pic}`} />
+                </div>
+                <h2>{member.name}</h2>
+                <p>{member.position}</p>
+              </li>
+            )
+          })}
+        </ul>
 
         <article>
           {/* 영역 가로 위치값, 세로위치값, 넓이 비율, 세로비율 */}
