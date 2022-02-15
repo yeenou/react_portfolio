@@ -60,8 +60,11 @@ export default function Gallery(){
     }
   }
 
-  const showSearch = () => {
+  const showSearch = (e) => { 
+    if(e.key !== 'Enter') return;   
     let result = input.current.value;
+    input.current.value='';
+
     if(result === ''){
       alert('검색어를 입력하세요.');
       return;
@@ -100,7 +103,7 @@ export default function Gallery(){
           <h1 onClick={showInterest}>Gallery</h1>        
           
           <div className="searchBox">
-            <input type="text" ref={input} />
+            <input type="text" ref={input} onKeyUp={showSearch} />
             <button onClick={showSearch}>search</button>
           </div>
           
