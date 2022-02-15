@@ -5,6 +5,7 @@ import Masonry from 'react-masonry-component';
 export default function Gallery(){ 
   const main = useRef(null);
   const frame = useRef(null);
+  const input = useRef(null);
   const [items, setItems] = useState([]);
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
@@ -20,7 +21,6 @@ export default function Gallery(){
   }
 
   const getFlickr = async opt =>{
-
     const api_key = '89aae050d1d8c006bdb5bf866029199d';
     const method1 = 'flickr.interestingness.getList';
     const method2 = 'flickr.photos.search'
@@ -46,6 +46,39 @@ export default function Gallery(){
       },1000)
     },1000)
   }
+
+  const showInterest = () =>{
+    if(enableClick){
+      setEnableClick(false);
+      setLoading(true);
+      frame.current.classList.remove('on');
+
+      getFlickr({
+        type: 'interest',
+        count: 500
+      });
+    }
+  }
+
+  const showSearch = () => {
+    let result = input.current.value;
+    if(result === ''){
+      alert('검색어를 입력하세요.');
+      return;
+    } 
+
+    if(enableClick){
+      setEnableClick(false);
+      setLoading(true);
+      frame.current.classList.remove('on');
+
+      getFlickr({
+        type: 'search',
+        count: 500,
+        tags: result
+      });
+    }
+  }
   
   useEffect(()=>{
     main.current.classList.add('on');
@@ -64,35 +97,15 @@ export default function Gallery(){
       
       <div className='innerWrap'>
         <div className="inner">     
-          <h1 onClick={()=>{
-            if(enableClick){
-              setEnableClick(false);
-              setLoading(true);
-              frame.current.classList.remove('on');
-
-              getFlickr({
-                type: 'interest',
-                count: 500
-              });
-            }          
-          }}>Gallery</h1>
-        
-          <button onClick={()=>{
-            if(enableClick){
-              setEnableClick(false);
-              setLoading(true);
-              frame.current.classList.remove('on');
-
-              getFlickr({
-                type: 'search',
-                count: 500,
-                tags: 'landscape'
-              });
-            }
-            
-          }}>ocean 갤러리 보기</button>
+          <h1 onClick={showInterest}>Gallery</h1>        
+          
+          <div className="searchBox">
+            <input type="text" ref={input} />
+            <button onClick={showSearch}>search</button>
+          </div>
           
           {loading ? <img className='loading' src={path+'/img/loading.gif'} /> : null}
+
           <section ref={frame}>
             <Masonry 
               elementType={'div'}
