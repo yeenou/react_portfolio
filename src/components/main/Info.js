@@ -8,18 +8,21 @@ import 'swiper/css/virtual';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import "swiper/css/effect-coverflow"; 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Info(){
   const vidData = useSelector(state=>state.youtubeReducer.youtube);
   const dispatch = useDispatch();
+  const [isPop, setIsPop] = useState(false);
+  const [index, setIndex] = useState(0);
 
   const api_key = 'AIzaSyDgamOPXenuhKr9LoqkU0RTq7dzP9aBZgw';
   const play_list = 'PLGOVj4gmzJyBMQSKPpBoycEvgXVFPMRZV';
   const num = 10;
   const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${api_key}&playlistId=${play_list}&maxResults=${num}`;
 
-  const fetchYoutube = async () => {
+  const fetchYoutube = async () => {    
+
     await axios.get(url).then(json=>{
       console.log(json.data.items);
       dispatch(setYoutube(json.data.items));     
@@ -31,6 +34,7 @@ export default function Info(){
   },[]);
 
   return (
+    <>
     <section id='info'>
       <div className='inner'>
         <h1>Information</h1>
@@ -51,11 +55,17 @@ export default function Info(){
           }}
         >
           {vidData.map((vid, index) => {
+            let tit = vid.snippet.title;
+            let tit_len = tit.length;
+
             if(index < 5) {
               return (
                 <SwiperSlide key={index} virtualIndex={index}>
-                <img src={vid.snippet.thumbnails.medium.url} />
-                <h2>{vid.snippet.title}</h2>
+                <img src={vid.snippet.thumbnails.medium.url} onClick={()=>{
+                  setIsPop(true);
+                  setIndex(index);
+                }} />
+                <h2>{tit_len>30 ? tit.substr(0,30)+'...' : tit}</h2>
               </SwiperSlide>
               )              
             }            
@@ -64,5 +74,27 @@ export default function Info(){
 
       </div>
     </section>
+
+    {isPop ? <Popup /> : null}
+    </>
   )
+
+  function Popup(){
+    useEffect(()=>{
+      document.body.style.overflow = 'hidden';
+      return ()=> document.body.style.overflow = 'auto';
+    },[]);
+    
+    return (
+      <aside className="popup">
+        <iframe 
+          src={"https://www.youtube.com/embed/"+vidData[index].snippet.resourceId.videoId}  
+          width='100%' 
+          height='100%' 
+          allowFullScreen
+        ></iframe>
+        <span onClick={()=>setIsPop(false)}>close</span>
+      </aside>
+    )
+  }
 }
