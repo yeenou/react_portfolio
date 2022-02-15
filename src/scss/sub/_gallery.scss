@@ -1,44 +1,57 @@
 .gallery {
   background: #efefef;
 
-  .inner {
+  .innerWrap {
+    transform: translateY(200px); opacity: 0; transition: 1s;
 
-    .loading {
-      position: absolute; top: 0px; left: 50%; width: 50%; transform: translateX(-50%);
-    }
-    >section {
-      transform: translateY(200px); opacity: 0;
-      transition: 1s;
 
-      &.on {
-        transform: translateY(0px); opacity: 1;
+    >.inner {
+      transition: none; width: 1180px; margin: 0px auto; min-height:  500px; padding-top: 100px;
+
+
+      .loading {
+        position: absolute; top: 0px; left: 50%; width: 50%; transform: translateX(-50%);
       }
-
-      &::after {
-        content: ''; display: block; clear: both;
-      }
-
-      article {
-        width: 20%; float: left; padding: 10px;
-
-        >.inner {
-          width: 100%; height: 100%; background: #fff; box-shadow: 5px 5px 10px rgba(0,0,0, .1); padding: 10px;
-
-          .pic {
-            width: 100%; margin-bottom: 10px; cursor: pointer;
-
-            img {
-              width: 100%; 
-            }            
-          }
-
-          h2 {
-            font: normal 14px/1.2 'arial'; color: #777; margin-bottom: 20px;
+      >section {
+        transform: translateY(200px); opacity: 0;
+        transition: 1s;
+  
+        &.on {
+          transform: translateY(0px); opacity: 1;
+        }
+  
+        &::after {
+          content: ''; display: block; clear: both;
+        }
+  
+        article {
+          width: 20%; float: left; padding: 10px;
+  
+          >.inner {
+            width: 100%; height: 100%; background: #fff; box-shadow: 5px 5px 10px rgba(0,0,0, .1); padding: 10px;
+  
+            .pic {
+              width: 100%; margin-bottom: 10px; cursor: pointer;
+  
+              img {
+                width: 100%; 
+              }            
+            }
+  
+            h2 {
+              font: normal 14px/1.2 'arial'; color: #777; margin-bottom: 20px;
+            }
           }
         }
       }
+    } 
+  } 
+  
+  &.on {
+    .innerWrap {
+      transform: translateY(0px); opacity: 1;
     }
-  }  
+  }
 }
 
 .popup {
@@ -50,6 +63,21 @@
 
   span {
     font: bold 14px/1 'arial'; color: #fff; position: absolute; top: 4vh; right: 5vw; cursor: pointer;
+  }
+}
+
+@media screen and (max-width: $tablet){
+  .content {
+    >figure {
+      height: 200px;
+    }
+
+    .innerWrap {
+      >.inner {
+        width: 100%; padding: 0px 3vw; padding-top: 80px
+      }
+    }
+    
   }
 }
 
@@ -74,3 +102,4 @@
     .item {width: 100%!important;}
   }
 }
+

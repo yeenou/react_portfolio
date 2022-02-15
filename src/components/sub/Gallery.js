@@ -35,15 +35,13 @@ export default function Gallery(){
       setItems(json.data.photos.photo);
     })
 
-    //모든 컴포넌트가 출력완료되면 masonry 모션속도보다 조금 여유있게 1초뒤에
-    //컨텐츠 보이고 로딩바 사라지게 설정
     setTimeout(()=>{
       frame.current.classList.add('on');
       setLoading(false);
       setTimeout(()=>{
         setEnableClick(true);
-      },1000)//frame에 on이 붙어서 올라오는 모션동안 방지
-    },1000)//masonry ui 모션이 적용되는 시간동안 방지  
+      },1000)
+    },1000)
   }
   
   useEffect(()=>{
@@ -56,50 +54,52 @@ export default function Gallery(){
     <main className="content gallery" ref={main}>
       <figure></figure>
       
-      <div className="inner">     
-        <h1 onClick={()=>{
-          if(enableClick){
-            setEnableClick(false);
-            setLoading(true);
-            frame.current.classList.remove('on');
-            getFlickr(url1);
-          }          
-        }}>Gallery</h1>
-
-        <button onClick={()=>{
-          if(enableClick){
-            setEnableClick(false);
-            setLoading(true);
-            frame.current.classList.remove('on');
-            getFlickr(url2);
-          }
-          
-        }}>ocean 갤러리 보기</button>
+      <div className='innerWrap'>
+        <div className="inner">     
+          <h1 onClick={()=>{
+            if(enableClick){
+              setEnableClick(false);
+              setLoading(true);
+              frame.current.classList.remove('on');
+              getFlickr(url1);
+            }          
+          }}>Gallery</h1>
         
-        {loading ? <img className='loading' src={path+'/img/loading.gif'} /> : null}
-        <section ref={frame}>
-          <Masonry 
-            elementType={'div'}
-            options={masonryOptions}
-          >
-          {items.map((item,idx)=>{
-            return (
-              <article key={idx} className='item'>
-                <div className="inner">
-                  <div className="pic" data={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} onClick={()=>{
-                    setIsPop(true);
-                    setIndex(idx);
-                  }}>
-                    <img src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} />
+          <button onClick={()=>{
+            if(enableClick){
+              setEnableClick(false);
+              setLoading(true);
+              frame.current.classList.remove('on');
+              getFlickr(url2);
+            }
+            
+          }}>ocean 갤러리 보기</button>
+          
+          {loading ? <img className='loading' src={path+'/img/loading.gif'} /> : null}
+          <section ref={frame}>
+            <Masonry 
+              elementType={'div'}
+              options={masonryOptions}
+            >
+            {items.map((item,idx)=>{
+              return (
+                <article key={idx} className='item'>
+                  <div className="inner">
+                    <div className="pic" data={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} onClick={()=>{
+                      setIsPop(true);
+                      setIndex(idx);
+                    }}>
+                      <img src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`} />
+                    </div>
+        
+                    <h2>{item.title}</h2>
                   </div>
-
-                  <h2>{item.title}</h2>
-                </div>
-              </article>
-            )            
-          })}
-          </Masonry>
-        </section>
+                </article>
+              )            
+            })}
+            </Masonry>
+          </section>
+        </div>
       </div>
     </main>
 
