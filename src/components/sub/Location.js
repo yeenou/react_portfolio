@@ -23,7 +23,7 @@ export default function Location(){
         imgPos : {offset: new kakao.maps.Point(116, 99)},
     },
     {
-        title:"BRANCH OFFICE12", 
+        title:"BRANCH OFFICE2", 
         latlng : new kakao.maps.LatLng(37.557527,126.9222836),
         imgSrc : path+'/img/marker3.png', 
         imgSize : new kakao.maps.Size(232,99), 
