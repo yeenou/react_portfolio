@@ -1,23 +1,21 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Masonry from 'react-masonry-component';
+import { setFlickr } from '../../redux/actions';
 
 export default function Gallery(){ 
   const main = useRef(null);
   const frame = useRef(null);
   const input = useRef(null);
-  //처름 서브 gallery 컴포넌트 호출시 이미 main에서 데이터가 적용된 flickrReducer데이터 가져오기
-  const initPic = useSelector(state=>state.flickrReducer.flickr);
-
-  const [items, setItems] = useState(initPic);
+  const picData = useSelector(state=>state.flickrReducer.flickr); 
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
   const [loading, setLoading] = useState(true);
   const [enableClick, setEnableClick] = useState(true); 
   const [isInterest, setIsInterest] = useState(true);
-  const path = process.env.PUBLIC_URL;
-  console.log(items);
+  const path = process.env.PUBLIC_URL;  
+  const dispatch = useDispatch();
 
   const masonryOptions = {
     fitWidth: false,
@@ -45,7 +43,7 @@ export default function Gallery(){
         alert('해당 검색어의 이미지가 없습니다.');
         return;
       }
-      setItems(json.data.photos.photo);            
+      dispatch(setFlickr(json.data.photos.photo));      
     })
 
     setTimeout(()=>{
@@ -118,18 +116,13 @@ export default function Gallery(){
         tags: result
       });
     }
-  }
-  
-  //처음 컴포넌트 렌더링시
+  }  
+
   useEffect(()=>{    
     main.current.classList.add('on');
-    //isInterest값을 true로 변경하고
-    setIsInterest(true);
-    //로딩바 숨김처리
-    setLoading(false);    
-    //갤러리 프레임 보임
+    setIsInterest(true); 
+    setLoading(false); 
     frame.current.classList.add('on');
-    
   },[]);
 
   return (
@@ -153,7 +146,7 @@ export default function Gallery(){
               elementType={'div'}
               options={masonryOptions}
             >
-            {items.map((item,idx)=>{
+            {picData.map((item,idx)=>{
               return (
                 <article key={idx} className='item'>
                   <div className="inner">
@@ -187,8 +180,8 @@ export default function Gallery(){
 
     return (
       <aside className="popup">
-        <h1>{items[index].title}</h1>
-        <img src={`https://live.staticflickr.com/${items[index].server}/${items[index].id}_${items[index].secret}_b.jpg`} />        
+        <h1>{picData[index].title}</h1>
+        <img src={`https://live.staticflickr.com/${picData[index].server}/${picData[index].id}_${picData[index].secret}_b.jpg`} />        
         <span onClick={()=>{
           setIsPop(false);
         }}>close</span>

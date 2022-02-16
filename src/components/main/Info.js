@@ -21,8 +21,7 @@ export default function Info(){
   const num = 10;
   const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${api_key}&playlistId=${play_list}&maxResults=${num}`;
 
-  const fetchYoutube = async () => {    
-
+  const fetchYoutube = async () => { 
     await axios.get(url).then(json=>{
       console.log(json.data.items);
       dispatch(setYoutube(json.data.items));     
@@ -35,7 +34,7 @@ export default function Info(){
 
   return (
     <>
-    <section id='info'>
+    <section id='info' className='myScroll'>
       <div className='inner'>
         <h1>Information</h1>
 

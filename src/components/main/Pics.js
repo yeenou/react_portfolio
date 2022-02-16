@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setFlickr} from '../../redux/actions';
+import { setFlickr } from '../../redux/actions';
 
 export default function Pics(){
   const picData = useSelector(state=> state.flickrReducer.flickr);
@@ -19,9 +19,8 @@ export default function Pics(){
   }
 
   useEffect(()=>{
-    getFlickr();
-  },[])
-  
+    if(picData.length===0) getFlickr();    
+  },[])  
 
   return (
     <section id="pics">
