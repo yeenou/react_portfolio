@@ -23,7 +23,7 @@ export default function Header(props){
         </div>
       </header>
       
-      <nav className={isOn ? 'on' : ''}>
+      <nav id='menuMo' className={isOn ? 'on' : ''}>
         <Gnb toggleNav={toggleNav} />
       </nav>
     </>
