@@ -25,7 +25,7 @@ header {
     }
 
     .fa-bars {
-      font-size: 20px; color: #fff; position: absolute; bottom: 20px; right: 5vw; display: none;
+      font-size: 20px; color: #fff; position: absolute; bottom: 20px; right: 5vw; display: none; cursor: pointer;
     }
   }
 
@@ -45,6 +45,20 @@ header {
       
 
     }
+  }
+}
+
+nav {
+  width: 280px; height: 100vh; background: rgba(0,0,0,.95);
+  position: fixed; top: 0px; left: -280px; z-index: 7; transition: 0.5s; padding: 50px;
+
+  ul li a {
+    font: bold 20px/1 'arial'; color: orange; 
+    display: inline-block; padding: 20px;
+  }
+
+  &.on {
+    left: 0px;
   }
 }
 
