@@ -1,11 +1,17 @@
 import {NavLink} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header(props){  
   const [isOn, setIsOn] = useState(false);
   const toggleNav = () => setIsOn(!isOn);
+  const closeNav = () => window.innerWidth > 1200 && setIsOn(false);
+
+  useEffect(()=>{
+    window.addEventListener('resize', closeNav);
+    return ()=> window.removeEventListener('resize', closeNav);
+  },[])
 
   return (
     <>
