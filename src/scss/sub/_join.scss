@@ -2,44 +2,216 @@
   width: 100%; padding: 20px; background: lightcyan; font: bold 16px/1 '맑은 고딕'; color: cornflowerblue; margin-bottom: 50px;
 }
 
-table {
-  width: 100%; border-top: 2px solid #333; border-bottom: 2px solid #333;
 
-  th, td {
-    border-bottom: 1px solid #ddd; padding: 10px 30px;
-  }
 
-  th {
-    width: 20%; border-right: 1px solid #ddd; text-align: left; font: bold 14px/1 'arial'; color: #555;
+.join{
+  background: url();
+  
+    .inner{
+      position: relative;
+  
+      h1{ 
+        margin-bottom: 100px; 
+        padding-left: 20px;
+        font: bold 60px/1 'Abril Fatface'; color: #333;
+  
+        // &::before{
+        //   content: ''; display: block;
+        //   width: 70px; height: 50px; background: #fff;
+        //   transform: rotateZ(-45deg);
+        //   position: absolute; top: 6%; left: -2.5%;
+        //   z-index: 5;
+        //   border-bottom: 3px solid #333;
+        //   //border: 1px solid #ddd;
+        // }
+      }
+  
+      .wrap{
+        width: 100%; margin-bottom: 100px; padding: 40px;
+        //background: #eee;
+        display: flex; justify-content: space-between;
+  
+        article{
+          width: 22%;
+          position: relative;
+          opacity: 0.7;
+  
+          h2{
+            margin: 20px 0;
+          }
+          p{
+            //font: bold 14px/1 'arial'; color: #333;
+          }
+  
+          &::before{
+            content: ''; display: block;
+            width: 16px; height: 16px; background: #333;
+            border-radius: 25px;
+          }
+  
+          &::after{
+            content: ''; display: block;
+            width: 70%; height: 0px; 
+            border-bottom: 4px dotted #333;
+            position: absolute; top: 2%; left: 10%;
+          }
+  
+          &.on{ opacity: 1; }
+        }
+      }
+      
+      section{
+        width: 100%;
+        display: flex;
+        border-radius: 30px;
+        box-shadow:10px 10px 20px rgba(0, 0, 0, 0.2);
+        margin-bottom:100px;
+        
+        position: relative;
+  
+        .pic{
+          width: 35%; background: #efefef; position: relative;
+          border-radius: 30px 0px 0px 30px;
+          //border: 1px solid red;
+  
+          img{
+            //width: 100%; height: 100%;
+          }
+  
+          h2{
+            position: absolute; top: 40%; left: 50%;
+            transform: translateX(-50%);
+            font: bold 36px/1 'Maven Pro';
+          }
+          p{
+            position: absolute; top: 50%; left: 50%;
+            transform: translateX(-50%);
+            font: 18px/1 'Maven Pro';
+          }
+        }
 
-    &.btnSet {
-      text-align: center;
-
-      input[type=reset], input[type=submit] {
-        width: 150px; height: 30px; border: 1px solid #555; text-align: center; margin: 10px; cursor: pointer; transition: 0.5s;
-
-        &:hover {
-          background: #555; color: #fff;
+        form{
+          width: 65%; padding: 50px; background: #fff;
+          border-radius: 0px 30px 30px 0px;
+  
+          fieldset{
+  
+            table {
+              width: 100%; 
+              border: none;
+            
+              th, td {
+                border-bottom: 1px solid #ddd; 
+                padding: 10px 20px; 
+              }
+            
+              th {
+                width: 30%; //border-right: 1px solid #ddd; 
+                text-align: left; font: bold 14px/1 'Maven Pro'; color: #555;
+            
+                &:last-child{ border-bottom: none; }
+  
+                &.btnSet {
+                  text-align: center;
+            
+                  input[type=reset], input[type=submit] {
+                    width: 150px; height: 40px; border: 1px solid #555; text-align: center; margin: 10px; cursor: pointer; transition: 0.5s;
+            
+            
+                    border: none; border-radius: 25px;
+            
+                    &:hover {
+                      background: #555; color: #fff;
+                    }
+                  }
+                }
+              }
+            
+              td {
+                input[type=text], input[type=password], select {
+                  width: 100%; padding: 10px 0px; 
+                  border: none; 
+  
+                  //option{ letter-spacing: 2px; }
+                }
+                textarea {
+                  width: 100%; height: 200px; padding: 10px 20px; 
+                  border: 1px solid #ddd; 
+                  resize: none;
+                }
+                label {
+                  font: 13px/1 'Maven Pro'; color: #777; margin-right: 5px; 
+  
+                  letter-spacing: 2px;
+                }
+                input[type=radio], input[type=checkbox] {
+                  margin-right: 20px;
+            
+            
+                  //border: none; border-bottom: 1px solid #ddd;
+            
+                }
+                .err {
+                  font: 11px/1 '맑은 고딕'; color: hotpink; display: block; margin: 5px 0px;
+                }
+              }
+            }
+          }
         }
       }
     }
   }
+  
 
-  td {
-    input[type=text], input[type=password], select {
-      width: 60%; padding: 7px 20px; border: 1px solid #aaa;
-    }
-    textarea {
-      width: 60%; height: 150px; padding: 10px 20px; border: 1px solid #aaa; resize: none;
-    }
-    label {
-      font: 12px/1 'arial'; color: #777; margin-right: 5px;
-    }
-    input[type=radio], input[type=checkbox] {
-      margin-right: 20px;
-    }
-    .err {
-      font: 11px/1 '맑은 고딕'; color: hotpink; display: block; margin: 5px 0px;
-    }
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+// table {
+//   width: 100%; border-top: 2px solid #333; border-bottom: 2px solid #333;
+
+//   th, td {
+//     border-bottom: 1px solid #ddd; padding: 10px 30px;
+//   }
+
+//   th {
+//     width: 20%; border-right: 1px solid #ddd; text-align: left; font: bold 14px/1 'arial'; color: #555;
+
+//     &.btnSet {
+//       text-align: center;
+
+//       input[type=reset], input[type=submit] {
+//         width: 150px; height: 30px; border: 1px solid #555; text-align: center; margin: 10px; cursor: pointer; transition: 0.5s;
+
+//         &:hover {
+//           background: #555; color: #fff;
+//         }
+//       }
+//     }
+//   }
+
+//   td {
+//     input[type=text], input[type=password], select {
+//       width: 60%; padding: 7px 20px; border: 1px solid #aaa;
+//     }
+//     textarea {
+//       width: 60%; height: 150px; padding: 10px 20px; border: 1px solid #aaa; resize: none;
+//     }
+//     label {
+//       font: 12px/1 'arial'; color: #777; margin-right: 5px;
+//     }
+//     input[type=radio], input[type=checkbox] {
+//       margin-right: 20px;
+//     }
+//     .err {
+//       font: 11px/1 '맑은 고딕'; color: hotpink; display: block; margin: 5px 0px;
+//     }
+//   }
+// }

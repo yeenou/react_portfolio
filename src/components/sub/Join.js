@@ -114,8 +114,34 @@ export default function Join(){
       
       <div className="inner">
         <h1>Join</h1>
+
+        <div className="wrap">
+          <article>
+            <h2>Lorem</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam sint quibusdam deserunt non sunt vero, placeat quia!</p>
+          </article>
+          <article className="on">
+            <h2>Lorem</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam sint quibusdam deserunt non sunt vero, placeat quia!</p>
+          </article>
+          <article>
+            <h2>Lorem</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam sint quibusdam deserunt non sunt vero, placeat quia!</p>
+          </article>
+          <article>
+            <h2>Lorem</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam sint quibusdam deserunt non sunt vero, placeat quia!</p>
+          </article>
+        </div>
+
         <section>
           { success ? <div className='success'>회원가입을 축하합니다.</div> : null }
+          <div className="pic">
+            <img src="" alt="" />
+            <h2>Lorem</h2>
+            <p>Lorem ipsum dolor sitant amet consectetur.</p>
+          </div>
+
           <form onSubmit={handleSubmit}>
             <fieldset>
               <legend className='h'>회원가입 폼 양식</legend>

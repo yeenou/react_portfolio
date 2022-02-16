@@ -9,21 +9,21 @@ export default function Location(){
   const path = process.env.PUBLIC_URL;  
   const info = [
     {
-        title:"본점", 
+        title:"HEAD OFFICE", 
         latlng : new kakao.maps.LatLng(37.50711796614849,126.7564159502457),
         imgSrc : path+'/img/marker1.png', 
         imgSize : new kakao.maps.Size(232,99), 
         imgPos : {offset: new kakao.maps.Point(116, 99)},
     },
     {
-        title:"지점1", 
+        title:"BRANCH OFFICE1", 
         latlng : new kakao.maps.LatLng(33.450701, 126.570667),
         imgSrc : path+'/img/marker2.png', 
         imgSize : new kakao.maps.Size(232,99), 
         imgPos : {offset: new kakao.maps.Point(116, 99)},
     },
     {
-        title:"지점2", 
+        title:"BRANCH OFFICE12", 
         latlng : new kakao.maps.LatLng(37.557527,126.9222836),
         imgSrc : path+'/img/marker3.png', 
         imgSize : new kakao.maps.Size(232,99), 
@@ -76,11 +76,48 @@ export default function Location(){
       <figure></figure>
       
       <div className="inner">
-        <h1>Location</h1>
-        <section>
-          <div id="map" ref={container}></div>
+        <h1>Contact Us</h1>
 
-          <nav className='traffic'>
+        <div className="wrap">
+          <article className="send">
+            <p>feel free to contact us and we will get back to you as soon as we can.</p>
+
+
+          </article>
+
+          <article className="oas">
+            <article>
+              <h2>opening hours</h2>
+              <p>Lorem ipsum sit.</p>
+              <p>Lorem ipsum sit.</p>
+              <p>Lorem ipsum sit.</p>
+              <p>Lorem ipsum sit.</p>
+            </article>
+            <article>
+              <h2>address</h2>
+              <p>Lorem ipsum dolor sit, <br />
+              amet consectur adipisicing <br />
+              doifelit.</p>
+            </article>
+            <article>
+              <h2>support</h2>
+              <p>Lorem ipsum dolor sit.</p>
+              <p>Lorem ipsum dolor sit.</p>
+            </article>
+          </article>
+        </div>
+      </div>
+
+      <section>
+        <nav className="branch">
+          {mapInfo.map((data, idx)=>{
+            return <button key={idx} onClick={()=>setIndex(idx)}>{data.title}</button>
+          })}
+        </nav>
+
+        <div id="map" ref={container}></div>
+
+          {/* <nav className='traffic'>
             <button onClick={()=>{
               map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
             }}>교통정보 보기</button>
@@ -88,15 +125,10 @@ export default function Location(){
             <button onClick={()=>{
               map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
             }}>교통정보 끄기</button>
-          </nav>
-
-          <nav className="branch">
-            {mapInfo.map((data, idx)=>{
-              return <button key={idx} onClick={()=>setIndex(idx)}>{data.title}</button>
-            })}
-          </nav>
+          </nav> */}
+          
         </section>
-      </div>
+
     </main>
   )
 }
