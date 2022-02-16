@@ -24,16 +24,16 @@ export default function Header(props){
       </header>
       
       <nav className={isOn ? 'on' : ''}>
-        <Gnb />
+        <Gnb toggleNav={toggleNav} />
       </nav>
     </>
   )
 }
 
-function Gnb(){
+function Gnb(props){
   const active = {color: 'aqua'}
   return (
-    <ul id="gnb">
+    <ul id="gnb" onClick={props.toggleNav}>
       <li><NavLink activeStyle={active} to='/department'>Department</NavLink></li>
       <li><NavLink activeStyle={active} to='/community'>Community</NavLink></li>
       <li><NavLink activeStyle={active} to='/gallery'>Gallery</NavLink></li>
