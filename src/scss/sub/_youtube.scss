@@ -3,18 +3,23 @@
 
   .inner {
     >section {
-      padding-bottom: 100px;
+      padding-bottom: 150px;
+      position: relative;
 
-      &::after {
-        content: ''; display: block; clear: both;
-      }
+      &::after { content: ''; display: block; clear: both; }
 
       article {
-        width: 20%; height: 500px; float: left; padding: 10px; overflow: hidden; margin-bottom: 20px;
+        width: 100%; height: 400px; 
+        float: left; padding: 40px; overflow: hidden; 
+        border-top: 1px solid #999;
+        &:last-of-type{ border-bottom: 1px solid #999; }
 
         .inner {
-          width: 100%; height: 100%; background: #fff; box-shadow: 3px 3px 10px rgba(0,0,0,.1); padding: 10px;
-          display: flex; flex-wrap: wrap; align-content: space-between; justify-content: center;
+          width: 100%; height: 100%; background: #efefef; 
+          //box-shadow: 3px 3px 10px rgba(0,0,0,.1); padding: 10px;
+          display: flex; flex-wrap: wrap; 
+          align-content: space-between; 
+          justify-content: center;
 
           /*
           word-break: 텍스트의 줄바꿈 속성 지정
@@ -22,23 +27,88 @@
           - break-all : 한글과 영어 모두 글자단위로 줄바꿈
           - keep-all : 한글, 영어 모두 단어 기준으로 줄바꿈
           */
+
           .txt {
+            width: 50%; height: 100%; padding: 30px 40px;
+
             h2 {
-              font: bold 16px/1.2 'arial'; color: #555; margin-bottom: 20px; word-break: break-all; 
+              font: 40px/1.2 'Playfair Display'; color: #555; margin-bottom: 30px; word-break: break-all; 
             }
 
             p {
-              font: 12px/1.2 'arial'; color: #888; word-break: break-all;
+              font: 16px/1.8 'arial'; color: #888; word-break: break-all;
             }
           }
 
           .pic {
-            width: 100%; height: 150px; overflow: hidden; cursor: pointer;
+            width: 50%; height: 100%; 
+            overflow: hidden; cursor: pointer;
 
             img {
-              width: 100%; height: 100%; object-fit: cover; transform: scale(1.8);
+              width: 100%; height: 100%; 
+              object-fit: cover; transform: scale(1.8);
             }
           }
+        }
+
+        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(6), &:nth-of-type(7), &:nth-of-type(8){
+          width: calc(100% / 3); 
+          padding-right: 0;
+          
+
+          >.inner {
+            position: relative;
+            padding-right: 40px;
+            border-right: 1px solid #999;
+
+            //&:nth-of-type(3) { border-right: none; }
+
+            .txt {
+              width: 100%; height: 50%; 
+              padding-top: 0px; 
+
+              h2 {
+                font: 30px/1.4 'Playfair Display'; color: #555; 
+                margin-bottom: 0px; 
+              }
+  
+              p { display: none; }
+            }
+  
+            .pic {
+              width: 100%; height: 50%; 
+  
+            }
+          }
+        }
+
+        &:nth-of-type(5){
+          margin-bottom: 300px;
+          border-bottom: 1px solid #999;
+
+          .inner{
+            display: block;
+
+            &::after { content: ''; display: block; clear: both; }
+
+            .txt{ float: right; }
+            .pic{ float: left; }
+          }
+        }
+      }
+
+      .saybox{
+        width: 100%; height: 300px;
+        padding: 60px 20%;
+        position: absolute; bottom: 950px;
+        text-align: center;
+
+        p{
+          font:26px/1.6 'Parisienne';
+          margin-bottom: 20px;
+        }
+        span{
+          font:14px/1 'Playfair Display';
         }
       }
     }

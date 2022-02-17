@@ -11,22 +11,22 @@ export default function Location(){
     {
         title:"HEAD OFFICE", 
         latlng : new kakao.maps.LatLng(37.50711796614849,126.7564159502457),
-        imgSrc : path+'/img/marker1.png', 
-        imgSize : new kakao.maps.Size(232,99), 
+        imgSrc : path+'/img/marker.png', 
+        imgSize : new kakao.maps.Size(99,99), 
         imgPos : {offset: new kakao.maps.Point(116, 99)},
     },
+    // {
+    //     title:"BRANCH OFFICE A", 
+    //     latlng : new kakao.maps.LatLng(33.450701, 126.570667),
+    //     imgSrc : path+'/img/marker.png', 
+    //     imgSize : new kakao.maps.Size(99,99), 
+    //     imgPos : {offset: new kakao.maps.Point(116, 99)},
+    // },
     {
-        title:"BRANCH OFFICE1", 
-        latlng : new kakao.maps.LatLng(33.450701, 126.570667),
-        imgSrc : path+'/img/marker2.png', 
-        imgSize : new kakao.maps.Size(232,99), 
-        imgPos : {offset: new kakao.maps.Point(116, 99)},
-    },
-    {
-        title:"BRANCH OFFICE2", 
+        title:"BRANCH OFFICE", 
         latlng : new kakao.maps.LatLng(37.557527,126.9222836),
-        imgSrc : path+'/img/marker3.png', 
-        imgSize : new kakao.maps.Size(232,99), 
+        imgSrc : path+'/img/marker.png', 
+        imgSize : new kakao.maps.Size(99,99), 
         imgPos : {offset: new kakao.maps.Point(116, 99)}, 
     }
   ]; 
@@ -82,6 +82,10 @@ export default function Location(){
           <article className="send">
             <p>feel free to contact us and we will get back to you as soon as we can.</p>
 
+            <input type="text" placeholder='name' />
+            <input type="text" placeholder='email address' />
+            <input type="text" placeholder='tell us all about it' />
+            <button>send</button>
 
           </article>
 

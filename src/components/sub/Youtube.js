@@ -1,3 +1,7 @@
+// const api_key = 'AIzaSyCLfKAY8NfxuZ2D0WVoKavyZ5nrbS2_atU';
+// const play_list = 'PLZOQwZqfo4_dr7JigsGw_LEZ0i4ybTJv5';
+
+
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from 'react-redux';
 
@@ -31,7 +35,7 @@ export default function Youtube(){
                 <div className="inner">               
                   <div className="txt">
                     <h2>{tit_len>30 ? tit.substr(0,30)+'...' : tit}</h2>
-                    <p>{desc_len>150 ? desc.substr(0,150)+'...' : desc}</p>
+                    <p>{desc_len>150 ? desc.substr(0,200)+'...' : desc}</p>
                   </div>
                   <div className="pic" onClick={()=>{
                     setIsPop(true);
@@ -43,6 +47,12 @@ export default function Youtube(){
               </article>
             )            
           })}
+
+          <div className="saybox">
+            <p>"And aboove all, watch with sit amet czur adipisicing elitsdawd. Eos minus consectetur voluptatem, odiovawr at et sit, neque. veniam suscipit necessitatibus."</p>
+            <span>LOALD OAUL</span>
+          </div>
+
         </section>
       </div>
     </main>

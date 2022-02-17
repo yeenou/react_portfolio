@@ -16,9 +16,9 @@ export default function Info(){
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const api_key = 'AIzaSyDgamOPXenuhKr9LoqkU0RTq7dzP9aBZgw';
-  const play_list = 'PLGOVj4gmzJyBMQSKPpBoycEvgXVFPMRZV';
-  const num = 10;
+  const api_key = 'AIzaSyCLfKAY8NfxuZ2D0WVoKavyZ5nrbS2_atU';
+  const play_list = 'PLZOQwZqfo4_c7bDEffhlIYYO9DXNfkuMO';
+  const num = 9;
   const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${api_key}&playlistId=${play_list}&maxResults=${num}`;
 
   const fetchYoutube = async () => { 

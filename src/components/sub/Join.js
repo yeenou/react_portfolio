@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Join(){
   let main = useRef(null);
+  const path = process.env.PUBLIC_URL;  
   
   const initVal = {
     userid: '',
@@ -111,6 +112,8 @@ export default function Join(){
   return (
     <main className="content join" ref={main}>
       <figure></figure>
+
+      <img src={path+'/img/mo.jpg'} alt="" />
       
       <div className="inner">
         <h1>Join</h1>
@@ -137,14 +140,14 @@ export default function Join(){
         <section>
           { success ? <div className='success'>회원가입을 축하합니다.</div> : null }
           <div className="pic">
-            <img src="" alt="" />
+            <img src={path+'/img/mo.jpg'} alt="" />
             <h2>Lorem</h2>
             <p>Lorem ipsum dolor sitant amet consectetur.</p>
           </div>
 
           <form onSubmit={handleSubmit}>
             <fieldset>
-              <legend className='h'>회원가입 폼 양식</legend>
+              <legend className='h'>회원가입 폼 양식</legend> 
 
               <table>
                 <caption className='h'>회원가입 입력</caption>

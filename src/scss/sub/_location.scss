@@ -5,15 +5,18 @@
     position: relative;
     padding-top: 0;
 
-    span{
-
-    }
     h1{ 
       margin-bottom: 100px; 
       padding-left: 20px;
       font: 60px/1 'Abril Fatface'; color: #eee;
       letter-spacing: 4px;
-      position: absolute; top: 100px; left: 0;
+      position: absolute; top: 84px; left: 0;
+
+      &::before{
+        content: 'say hi to the team'; display: block;
+        font: 14px/1 'arial'; color: #bbb;
+        margin-bottom: 15px;
+      }
     }
 
     >.wrap{
@@ -24,13 +27,34 @@
         width: 45%;
         border-right: 1px solid rgb(50, 50, 50);
         border-left: 1px solid rgb(50, 50, 50);
-        padding: 200px 60px 200px 60px;
+        padding: 230px 60px 200px 60px;
+        position: relative;
 
         p{
-          color: #ccc;
+          color: #bbb;
+          margin-bottom: 50px;
+        }
+
+        input{
+          width: 100%; height: 40px;
+          margin-bottom: 40px;
+          border:none; border-bottom: 2px solid #555;
+          background: none;
+          font: 14px/1 'arial';
+          color:#555;
 
         }
-        
+        button{
+          width: 100%; height: 50px;
+          background: #444; 
+          font:bold 14px/1 'arial'; color: #bbb;
+        }
+
+        &::after{
+          content: ''; display: block;
+          width: 120%; height: 2px; background: rgb(50, 50, 50);
+          position: absolute; bottom: 60px; left: -10%;
+        }
       }
 
       .oas{
@@ -40,45 +64,48 @@
         padding: 100px 60px 200px 60px;
 
         >article{
-          color: #ccc;
+          
 
           margin-bottom: 30px;
 
           h2{
             margin-bottom: 10px;
+            font: 18px/1 'arial'; color: #555;
 
           }
-          p{}
+          p{
+            color: #bbb;
+          }
         }
       }
     }
-
   }
 
   >section {
-    width: 100%; height: 530px; 
+    width: 100%; height: 500px; 
     position: relative;
     //display: flex;
 
     .branch{ 
-      width: 40%;
-      position: absolute; top: -50px; right: -3%;
+      display: block; width: 27%; 
+      position: absolute; top: -71px; right: 9%;
+      display: flex; justify-content: space-between;
+
+      //border: 1px solid red;
 
       button{
-        border: none; background: none; color: #eee;
-        margin-right: 6%;
+        border: none; background: none; 
+        font:bold 14px/1 'arial'; color: #555;
         cursor: pointer;
 
+        &:last-child { margin-right: 0; }
       }
-
     }
 
     #map {
-      width: 100%; height: 100%; background: #000;
-      filter:saturate(20%);
+      width: 100%; height: 100%; //background: #000;
+      filter:saturate(10%);
     }
-
-
 
 
 
@@ -95,7 +122,6 @@
     //       text-align: left;
     //       display: flex;
           
-
     //       &:last-child{ border-bottom: 2px solid #eee; margin-bottom: 25px; }
 
     //       img{
@@ -121,7 +147,5 @@
     //     }
     //   }
     // }
-    
-    
   }
 }

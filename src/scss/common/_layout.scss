@@ -6,9 +6,14 @@
   >.inner {
     width: 1180px; margin: 0px auto; padding-top: 100px; transform: translateY(100px); opacity: 0; transition: 1s;
 
-    h1 {
-      font: 30px/1 'arial'; color: #333; margin-bottom: 20px;
+    h1{ 
+      margin-bottom: 100px; 
+      padding-left: 20px;
+      font: bold 60px/1 'Abril Fatface'; color: #333; letter-spacing: 4px;
     }
+    // h1 {
+    //   font: 30px/1 'arial'; color: #333; margin-bottom: 20px;
+    // }
 
     >section {
       min-height: 500px; //padding-bottom: 100px;
