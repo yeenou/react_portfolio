@@ -64,7 +64,7 @@ export default function Gallery(){
 
       getFlickr({
         type: 'interest',
-        count: 500
+        count: 50
       });
     }
   }
@@ -87,7 +87,7 @@ export default function Gallery(){
 
       getFlickr({
         type: 'search',
-        count: 500,
+        count: 50,
         tags: result
       });
     }
@@ -112,7 +112,7 @@ export default function Gallery(){
 
       getFlickr({
         type: 'search',
-        count: 500,
+        count: 50,
         tags: result
       });
     }
@@ -132,16 +132,23 @@ export default function Gallery(){
       
       <div className='innerWrap'>
         <div className="inner">     
-          <h1 onClick={showInterest}>Gallery</h1>        
+          <h1 onClick={showInterest}>Gallery</h1> 
           
           <div className="searchBox">
-            <input type="text" ref={input} onKeyUp={showSearchEnter} />
-            <button onClick={showSearch}>search</button>
+            <input type="text" ref={input} onKeyUp={showSearchEnter} placeholder='검색어를 입력하세요' />
+            <button onClick={showSearch}>
+              {/* <i class="fal fa-search"></i> */}
+              SEARCH
+              </button>
           </div>
           
           {loading ? <img className='loading' src={path+'/img/loading.gif'} /> : null}
 
           <section ref={frame}>
+            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, culpa. <br />
+            Lorem ipsum dolor sit amet.
+            </span>
+
             <Masonry 
               elementType={'div'}
               options={masonryOptions}
@@ -158,6 +165,8 @@ export default function Gallery(){
                     </div>
         
                     <h2>{item.title}</h2>
+
+                    
                   </div>
                 </article>
               )            

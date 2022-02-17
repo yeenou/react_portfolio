@@ -20,6 +20,17 @@ header {
 
         a {
           display: inline-block; padding: 20px 30px; font: 14px/1 'arial'; color: #fff; transition: 0.5s;
+
+          // &::after{
+          //   content: ""; display: block;
+          //   width: 0; height: 6px;
+          //   background: #eee;
+          //   position: absolute; bottom: 10px; left: 50%;
+          //   transform: translateX(-50%);
+          //   transform-origin: center;
+          //   transition: 0.5s;
+          //   z-index: 5;
+          // }
         }
       }
     }

@@ -10,7 +10,7 @@
   >img{
     width: 100%; height: calc(100% - 16% ); //footer 값 수정
     object-fit: cover;
-    filter: blur(5px);
+    filter: blur(6px);
     z-index: -10;
     position: absolute;
   }
@@ -20,6 +20,7 @@
     padding-bottom:150px;
 
     h1{ 
+      color: #eee;
 
       // &::before{
       //   content: ''; display: block;
@@ -43,22 +44,23 @@
         opacity: 0.7;
 
         h2{
-          margin: 20px 0;
+          margin: 20px 0; color: #eee;
         }
         p{
-          //font: bold 14px/1 'arial'; color: #333;
+          //font: bold 14px/1 'arial'; 
+          color: #eee;
         }
 
         &::before{
           content: ''; display: block;
-          width: 16px; height: 16px; background: #333;
+          width: 16px; height: 16px; background: #bbb;
           border-radius: 25px;
         }
 
         &::after{
           content: ''; display: block;
           width: 70%; height: 0px; 
-          border-bottom: 4px dotted #333;
+          border-bottom: 4px dotted #bbb;
           position: absolute; top: 2%; left: 10%;
         }
 
@@ -96,7 +98,10 @@
       }
 
       form{
-        width: 65%; padding: 50px; background: #fff;
+        width: 65%; padding: 50px; 
+        background: #fff;
+        //background:rgb(22, 22, 22);
+
         border-radius: 0px 30px 30px 0px;
 
         fieldset{

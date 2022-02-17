@@ -10,7 +10,7 @@ export default function Pics(){
   const getFlickr = async () => {
     const api_key = '89aae050d1d8c006bdb5bf866029199d';
     const method1 = 'flickr.interestingness.getList';
-    const num = 500;
+    const num = 20;
     const url = `https://www.flickr.com/services/rest/?method=${method1}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1`;
 
     await axios.get(url).then(json=>{

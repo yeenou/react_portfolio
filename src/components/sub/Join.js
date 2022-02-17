@@ -113,7 +113,7 @@ export default function Join(){
     <main className="content join" ref={main}>
       <figure></figure>
 
-      <img src={path+'/img/mo.jpg'} alt="" />
+      <img src={path+'/img/tree.jpg'} alt="" />
       
       <div className="inner">
         <h1>Join</h1>
@@ -140,7 +140,7 @@ export default function Join(){
         <section>
           { success ? <div className='success'>회원가입을 축하합니다.</div> : null }
           <div className="pic">
-            <img src={path+'/img/mo.jpg'} alt="" />
+            <img src={path+'/img/tree.jpg'} alt="" />
             <h2>Lorem</h2>
             <p>Lorem ipsum dolor sitant amet consectetur.</p>
           </div>

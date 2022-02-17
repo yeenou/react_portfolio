@@ -1,7 +1,11 @@
 .youtube {
-  background: #efefef;
+  background:rgb(22, 22, 22);
+  //background: #efefef;
 
   .inner {
+
+    h1{ color: #eee; }
+
     >section {
       padding-bottom: 150px;
       position: relative;
@@ -11,11 +15,11 @@
       article {
         width: 100%; height: 400px; 
         float: left; padding: 40px; overflow: hidden; 
-        border-top: 1px solid #999;
-        &:last-of-type{ border-bottom: 1px solid #999; }
+        border-top: 1px solid rgb(50, 50, 50);
+        &:last-of-type{ border-bottom: 1px solid rgb(50, 50, 50); }
 
         .inner {
-          width: 100%; height: 100%; background: #efefef; 
+          width: 100%; height: 100%; //background: #efefef; 
           //box-shadow: 3px 3px 10px rgba(0,0,0,.1); padding: 10px;
           display: flex; flex-wrap: wrap; 
           align-content: space-between; 
@@ -32,21 +36,22 @@
             width: 50%; height: 100%; padding: 30px 40px;
 
             h2 {
-              font: 40px/1.2 'Playfair Display'; color: #555; margin-bottom: 30px; word-break: break-all; 
+              font: 40px/1.2 'Playfair Display'; color: #bbb; margin-bottom: 30px; word-break: break-all; 
             }
 
             p {
-              font: 16px/1.8 'arial'; color: #888; word-break: break-all;
+              font: 16px/1.8 'arial'; color: #555; word-break: break-all;
             }
           }
 
           .pic {
-            width: 50%; height: 100%; 
+            width: 50%; //height: 100%; 
             overflow: hidden; cursor: pointer;
 
             img {
               width: 100%; height: 100%; 
-              object-fit: cover; transform: scale(1.8);
+              object-fit: cover;
+              transform: scale(1.8);
             }
           }
         }
@@ -59,16 +64,16 @@
           >.inner {
             position: relative;
             padding-right: 40px;
-            border-right: 1px solid #999;
+            border-right: 1px solid rgb(50, 50, 50);
 
             //&:nth-of-type(3) { border-right: none; }
 
             .txt {
               width: 100%; height: 50%; 
-              padding-top: 0px; 
+              padding: 0px; 
 
               h2 {
-                font: 30px/1.4 'Playfair Display'; color: #555; 
+                font: 27px/1.4 'Playfair Display'; color: #bbb; 
                 margin-bottom: 0px; 
               }
   
@@ -84,7 +89,7 @@
 
         &:nth-of-type(5){
           margin-bottom: 300px;
-          border-bottom: 1px solid #999;
+          border-bottom: 1px solid rgb(50, 50, 50);
 
           .inner{
             display: block;
@@ -104,11 +109,11 @@
         text-align: center;
 
         p{
-          font:26px/1.6 'Parisienne';
+          font:26px/1.6 'Parisienne'; color: #777;
           margin-bottom: 20px;
         }
         span{
-          font:14px/1 'Playfair Display';
+          font:14px/1 'Playfair Display'; color: #555;
         }
       }
     }
