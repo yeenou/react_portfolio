@@ -2,7 +2,11 @@
   .inner {
     >section {
       .inputBox {
-        width: 100%; padding: 50px; margin-bottom: 50px; border: 1px solid #aaa;
+        width: 100%; padding: 50px; margin-bottom: 50px; 
+        
+        
+        
+        border: 1px solid red;
       }
 
       .showList {

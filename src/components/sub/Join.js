@@ -113,12 +113,12 @@ export default function Join(){
     <main className="content join" ref={main}>
       <figure></figure>
 
-      <img src={path+'/img/tree.jpg'} alt="" />
+      <img src={path+'/img/join1.jpg'} alt="" />
       
       <div className="inner">
         <h1>Join</h1>
 
-        <div className="wrap">
+        {/* <div className="wrap">
           <article>
             <h2>Lorem</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam sint quibusdam deserunt non sunt vero, placeat quia!</p>
@@ -135,12 +135,12 @@ export default function Join(){
             <h2>Lorem</h2>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam sint quibusdam deserunt non sunt vero, placeat quia!</p>
           </article>
-        </div>
+        </div> */}
 
         <section>
           { success ? <div className='success'>회원가입을 축하합니다.</div> : null }
           <div className="pic">
-            <img src={path+'/img/tree.jpg'} alt="" />
+            <img src={path+'/img/join1.jpg'} alt="" />
             <h2>Lorem</h2>
             <p>Lorem ipsum dolor sitant amet consectetur.</p>
           </div>

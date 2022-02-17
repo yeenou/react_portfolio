@@ -7,7 +7,7 @@ import { setFlickr } from '../../redux/actions';
 export default function Gallery(){ 
   const main = useRef(null);
   const frame = useRef(null);
-  const input = useRef(null);
+  const input = useRef(null); // input값 참조
   const picData = useSelector(state=>state.flickrReducer.flickr); 
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
@@ -24,6 +24,7 @@ export default function Gallery(){
     transitionDuration: '0.5s'
   }
 
+   // flickr 
   const getFlickr = async opt =>{
     const api_key = '89aae050d1d8c006bdb5bf866029199d';
     const method1 = 'flickr.interestingness.getList';
@@ -58,8 +59,8 @@ export default function Gallery(){
   const showInterest = () =>{  
     if(enableClick && !isInterest){
       setIsInterest(true);
-      setEnableClick(false);
-      setLoading(true);
+      setEnableClick(false); //재클릭 방지
+      setLoading(true); //로딩 실행
       frame.current.classList.remove('on');
 
       getFlickr({
@@ -95,9 +96,8 @@ export default function Gallery(){
 
   const showSearch = () => {     
     let result = input.current.value;
-    result = result.trim();
+    result = result.trim(); // 빈칸 2 개 이상일 때 (입력값 없을 떄) 1개로 인식.
     input.current.value='';
-    
 
     if(result === ''){
       alert('검색어를 입력하세요.');
