@@ -46,11 +46,9 @@ export default function Department(){
       <figure></figure>
       
       <div className="inner">
-        <h1>Department</h1>
+        <h1>Our Teams</h1>
 
-        <button onClick={()=>{
-          dispatch(setMembers(newMember))
-        }}>멤버변경</button>
+        <button onClick={()=>{ dispatch(setMembers(newMember)) }}>멤버변경</button>
 
         <section>
           {members.map((member, idx)=>{

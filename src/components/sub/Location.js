@@ -73,7 +73,11 @@ export default function Location(){
 
   return (
     <main className="content location" ref={main}>
-      <figure></figure>
+      <figure>
+        <div className="inner">
+          <h1>Lorem</h1>
+        </div>
+      </figure>
       
       <div className="inner">
         <h1>Contact Us</h1>
@@ -120,6 +124,8 @@ export default function Location(){
         </nav>
 
         <div id="map" ref={container}></div>
+
+        <div className="mapBox"></div>
 
           {/* <nav className='traffic'>
             <button onClick={()=>{

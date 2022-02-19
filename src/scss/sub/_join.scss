@@ -10,7 +10,7 @@
   >img{
     width: 100%; height: calc(100% - 16% ); //footer 값 수정
     object-fit: cover;
-    filter: blur(6px);
+    filter: blur(10px);
     z-index: -10;
     position: absolute;
   }
