@@ -1,10 +1,10 @@
 .youtube {
   //background:rgb(22, 22, 22);
-  //background: #efefef;
+  background:#272727;
 
   .inner {
 
-    h1{ color: #eee; }
+    //h1{ color: #eee; }
 
     >section {
       padding-bottom: 150px;
@@ -36,11 +36,11 @@
             width: 50%; height: 100%; padding: 30px 40px;
 
             h2 {
-              font: 40px/1.2 'Playfair Display'; color: #bbb; margin-bottom: 30px; word-break: break-all; 
+              font: 40px/1.2 'Playfair Display'; color: #ccc; margin-bottom: 30px; word-break: break-all; 
             }
 
             p {
-              font: 16px/1.8 'arial'; color: #555; word-break: break-all;
+              font: 16px/1.8 'arial'; color: #888; word-break: break-all;
             }
           }
 
@@ -109,11 +109,11 @@
         text-align: center;
 
         p{
-          font:26px/1.6 'Parisienne'; color: #777;
+          font:26px/1.6 'Parisienne'; color: #888;
           margin-bottom: 20px;
         }
         span{
-          font:14px/1 'Playfair Display'; color: #555;
+          font:14px/1 'Playfair Display'; color: #666;
         }
       }
     }

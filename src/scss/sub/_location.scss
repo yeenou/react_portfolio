@@ -1,5 +1,5 @@
 .location {
-  //background:rgb(22, 22, 22);
+  background:#272727;
 
   figure{
     .inner{
@@ -12,7 +12,7 @@
     padding-top: 0;
 
     >h1{ 
-      position: absolute; top: 84px; left: 0;
+      position: absolute; top: 84px; left: 0; z-index: 5;
 
       &::before{
         content: 'say hi to the team'; display: block;
@@ -49,7 +49,8 @@
         button{
           width: 100%; height: 50px;
           background: #c5a57c; //#c9b497;//#444; 
-          font:bold 14px/1 'arial'; color: #bbb;
+          font:bold 14px/1 "Montserrat"; color: #ccc;
+          letter-spacing: 2px;
         }
 
         &::after{
