@@ -75,8 +75,13 @@ export default function Department(){
         <div className="memberAbout">
           <h1>OUR <span>TEAMS</span></h1>
           
-          <button onClick={()=>{ dispatch(setMembers(newMember)) }}>멤버변경</button>
+
+
           
+          {/* <button onClick={()=>{ dispatch(setMembers(newMember)) }}>멤버변경</button> */}
+          
+
+
           <section>
             {members.map((member, idx)=>{
               return (

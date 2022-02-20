@@ -151,7 +151,7 @@ export default function Community(){
                           defaultValue={post.content}
                           ref={updateTextarea}
                         >
-                          </textarea><br />
+                        </textarea><br />
                       </div>                  
                       
                       <div className="btns">                    
