@@ -1,29 +1,132 @@
 .department{
-    //background:rgb(22, 22, 22);
+    background:#272727;
 
     .inner{
 
-        h1{ color:#eee; }
+        .introAbout{
+            width: 100%; position: relative;
 
-        button{}
+            >h1{
+                font: bold 45px/1 'Oswald'; color: #eee;
+                letter-spacing: 8px;
+                position: absolute; left: 50%; top: 0;
+                transform: translateX(-50%);
 
-        section{
-            width: 100%; 
-            display: flex; padding-bottom: 150px;
+                span{ color: #c5a57c; }
+            }
 
-            article{
-                width: calc(100% / 3); height: 600px;
-                padding: 60px;
+            .wrap{
+                width: 100%; display: flex; position: relative;
 
-                border: 1px solid red;
+                >article{
+                    width: calc(100% / 3);
+                    padding: 120px 15px 240px 0;
+                    border-left: 2px solid #2c2c2c;
 
-                img{
-                    width: 100%; height: 80%; object-fit: cover; 
-                    margin-bottom: 50px;
+                    >h2{ 
+                        font: bold 36px/1.2 'Open Sans'; color: #ccc; 
+                        padding-right: 20px;
+                        margin-bottom: 40px;
+                    }
+
+                    >p{
+                        font: 15px/1.7 'arial';
+                        color: #888;
+                        padding-right: 10px;
+                    }
+
+                    svg{
+                        width: 50px; height: 50px;
+                        margin-bottom: 10px;
+
+                        border: 1px solid red;
+                    }
+
+                    h3{
+                        font: bold 22px/1 'Montserrat'; color: #bcbcbc;
+                        letter-spacing: 3px;
+                        margin-bottom: 10px;
+
+                        &:last-child{ margin-bottom: 0;}
+                    }
+
+                    &:last-child{
+                        //height: 100%; 
+                        padding: 120px 0 240px 0; 
+
+                        img{
+                            width: 100%; height: 100%; object-fit: cover;
+                        }
+                    }
                 }
-                h2{ color: #555; }
-                p{ color: #555; }
+
+                &::after{
+                    content: 'about'; display: block; 
+                    font: bold 212px/1 'arial'; color: #2d2d2d; 
+                    letter-spacing: 5px;
+                    position: absolute; left: -300px; top: 40px;
+                    z-index: -5;
+                }
+            }
+        }
+
+        .memberAbout{
+
+            >h1{
+                font: bold 45px/1 'Oswald'; color: #eee;
+                letter-spacing: 8px;
+                position: absolute; left: 50%; //top: 0;
+                transform: translateX(-50%);
+
+                span{ color: #c5a57c; }
+            }
+
+            button{ position: absolute; }
+
+            section{
+                width: 100%; 
+                display: flex; padding-bottom: 150px;
+
+                article{
+                    width: calc(100% / 3); //height: 600px;
+                    padding: 120px 50px 120px 50px;
+                    border-left: 2px solid #2c2c2c;
+                    //border: 1px solid red;
+
+                    &:nth-of-type(1){padding-left: 0; padding-right: 100px; }
+                    &:nth-of-type(3){padding-left: 100px; padding-right: 0; }
+
+                    img{
+                        width: 100%; height: 80%; object-fit: cover; 
+                        margin-bottom: 50px;
+
+                    }
+                    h2{
+                        font: bold 22px/1 'Montserrat'; color: #bcbcbc;
+                        letter-spacing: 3px;
+                        margin-bottom: 10px;
+                    }
+                    p{ 
+                        font: 15px/1.7 'arial';
+                        color: #888;
+                    }
+
+                    img:hover{
+                        
+
+                    }
+                }
+
+                &::after{
+                    content: 'teams'; display: block; 
+                    font: bold 212px/1 'arial'; color: #2d2d2d; 
+                    letter-spacing: 5px;
+                    position: absolute; right: -300px; bottom: 828px;
+                    z-index: -5;
+                }
             }
         }
     }
 }
+
+//#c5a57c

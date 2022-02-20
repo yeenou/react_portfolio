@@ -46,21 +46,49 @@ export default function Department(){
       <figure></figure>
       
       <div className="inner">
-        <h1>Our Teams</h1>
 
-        <button onClick={()=>{ dispatch(setMembers(newMember)) }}>멤버변경</button>
+        <div className="introAbout">
+          <h1>ABOUT <span>GO.ABCD</span></h1>
+          <div className="wrap">
+            <article>
+              <h2>we turn ideas into works of art.</h2>
+              <p>For each project we dolor sit amet consectetur adipisicing elit. Illo cum dolorem quam facere. Odit perspiciatis, adipisci fuga quisquam incidunt nulla quod omnis autem ex magni, aut voluptatem cumque ea modi odio libero quas excepturi ducimus. ipsum dolor sit amet consectetur adipisicing elit. Illo cum dolorem quam facere. Odit perspiciatis, fuga quisquam incidunt nulla fuga quisquam incidunt nulla quod omnis autem ex magni, ea modi odio libero quas quod omnis autem ex magni, aut voluptatem cumque ea modi odio libero quas provident, ducimus Id!</p>
+            </article>
+            <article>
+              <h2>our <br /> specialization:</h2>
 
-        <section>
-          {members.map((member, idx)=>{
-            return (
-              <article key={idx}>
-                <img src={`${path}/img/${member.pic}`} />
-                <h2>{member.name}</h2>
-                <p>{member.position}</p>
+              <svg></svg>
+              <h3>ARCHITECTURE</h3>
+              <svg></svg>
+              <h3>INTERIORS</h3>
+              <svg></svg>
+              <h3>PLANING</h3>
+            </article>
+            <article>
+              <img src={path+ '/img/mo.jpg'} alt="" />
               </article>
-            )            
-          })}
-        </section>
+          </div>
+        </div>
+
+
+
+        <div className="memberAbout">
+          <h1>OUR <span>TEAMS</span></h1>
+          
+          <button onClick={()=>{ dispatch(setMembers(newMember)) }}>멤버변경</button>
+          
+          <section>
+            {members.map((member, idx)=>{
+              return (
+                <article key={idx}>
+                  <img src={`${path}/img/${member.pic}`} />
+                  <h2>{member.name}</h2>
+                  <p>{member.position}</p>
+                </article>
+              )            
+            })}
+          </section>
+        </div>
       </div>
     </main>
   )

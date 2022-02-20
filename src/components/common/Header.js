@@ -31,7 +31,7 @@ export default function Header(props){
 }
 
 function Gnb(props){
-  const active = {color: 'aqua'}
+  const active = {color: '#c5a57c'}
   return (
     <ul id="gnb" onClick={props.toggleNav}>
       <li><NavLink activeStyle={active} to='/department'>Department</NavLink></li>
