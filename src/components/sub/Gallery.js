@@ -128,7 +128,15 @@ export default function Gallery(){
   return (
     <>
     <main className="content gallery" ref={main}>
-      <figure></figure>
+      <figure>
+        <div className="inner">
+          <h1> <span>G</span>AL <br /> 
+            <span>__</span> LE <br />
+            RY
+          </h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum atque, molestias voluptas maiores deserunt ea! Deleniti molestiae obcaecati amet. Consequatur itaque dolores quos veritatis eaque, minus quisquam fugit corporis commodi rem architecto nisi, quia laboriosam obcaecati accusamus ea laudantium facere et, provident eligendi voluptatibus expedita nesciunt! Ab, quo rem?</p>
+        </div>
+      </figure>
       
       <div className='innerWrap'>
         <div className="inner">     

@@ -111,7 +111,15 @@ export default function Join(){
 
   return (
     <main className="content join" ref={main}>
-      <figure></figure>
+      <figure>
+        <div className="inner">
+          <h1> <span>S</span>IG <br /> 
+            <span>__</span> N <br />
+            UP
+          </h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum atque, molestias voluptas maiores deserunt ea! Deleniti molestiae obcaecati amet. Consequatur itaque dolores quos veritatis eaque, minus quisquam fugit corporis commodi rem architecto nisi, quia laboriosam obcaecati accusamus ea laudantium facere et, provident eligendi voluptatibus expedita nesciunt! Ab, quo rem?</p>
+        </div>
+      </figure>
 
       <img src={path+'/img/join1.jpg'} alt="" />
       
