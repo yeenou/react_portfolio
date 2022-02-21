@@ -84,7 +84,8 @@ export default function Location(){
       </figure>
       
       <div className="inner">
-        <h1>Contact Us</h1>
+        <h1>GET <span>IN TOUCH</span></h1>
+        <h2>Contact Us</h2>
 
         <div className="wrap">
           <article className="send">
@@ -99,22 +100,22 @@ export default function Location(){
 
           <article className="oas">
             <article>
-              <h2>opening hours</h2>
-              <p>Lorem ipsum sit.</p>
-              <p>Lorem ipsum sit.</p>
-              <p>Lorem ipsum sit.</p>
-              <p>Lorem ipsum sit.</p>
+              <h3>opening hours</h3>
+              <p>Monday - Friday</p>
+              <p>9am - 5pm</p>
+              <p>Weekend</p>
+              <p>Closed</p>
             </article>
             <article>
-              <h2>address</h2>
-              <p>Lorem ipsum dolor sit, <br />
-              amet consectur adipisicing <br />
+              <h3>address</h3>
+              <p>Jin, ipsum dolor sit, <br />
+              amet co aipisicing <br />
               doifelit.</p>
             </article>
             <article>
-              <h2>support</h2>
-              <p>Lorem ipsum dolor sit.</p>
-              <p>Lorem ipsum dolor sit.</p>
+              <h3>support</h3>
+              <p>hello@gmail.com</p>
+              <p>+82 10 1234 5678</p>
             </article>
           </article>
         </div>
@@ -141,7 +142,20 @@ export default function Location(){
             }}>교통정보 끄기</button>
           </nav> */}
           
-        </section>
+      </section>
+
+      <div className="innerWorldMap">
+
+        <h1>WE ARE <span>WORLDWIDE</span></h1>
+        <div className="worldMap">
+          <img src={path+'/img/worldMap.jpg'} alt="" />
+          <div className="txtbox">
+            <h2>NEW YORK</h2>
+            <p>Lorem ipsum do, <br /> 
+            sit amet elit. Facil is, iste!</p>
+          </div>
+        </div>
+      </div>
 
     </main>
   )

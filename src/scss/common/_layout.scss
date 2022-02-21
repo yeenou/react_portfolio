@@ -42,13 +42,17 @@
   }
 
   >.inner {
-    width: 1180px; margin: 0px auto; padding-top: 120px; 
+    width: 1180px; margin: 0px auto; position: relative;
     transform: translateY(100px); opacity: 0; transition: 1s 0.5s;
 
     >h1{ 
-      margin-bottom: 100px; 
-      padding-left: 20px;
-      font: bold 60px/1 'Abril Fatface'; color: #eee; letter-spacing: 4px;
+      font: bold 45px/1 'Oswald'; color: #eee;
+      letter-spacing: 8px;
+      z-index: 5;
+      position: absolute; left: 50%; top: 120px;
+      transform: translateX(-50%);
+
+      span{ color: #c5a57c; }
     }
 
     >section {
