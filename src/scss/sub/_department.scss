@@ -1,7 +1,29 @@
 .department{
-    background:#272727;
+    //background:#272727;
+    figure{
 
-    .inner{
+        //border-bottom: 2px solid #2c2c2c;
+        border: 1px solid red;
+
+        >.inner{
+
+            border: 1px solid blue;
+            h1{
+                padding: 50px 0;
+                font: 130px/1 'Nanum Myeongjo'; color: #eee;
+                letter-spacing: 2px;
+
+                span{ 
+                    font-style: italic; 
+
+                    //&:nth-of-type(2){ line-height: 1; }
+                }
+                
+            }
+        }
+    }
+
+    >.inner{
 
         .introAbout{
             width: 100%; position: relative;

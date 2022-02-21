@@ -43,7 +43,14 @@ export default function Department(){
 
   return (
     <main className="content department" ref={main}>
-      <figure></figure>
+      <figure>
+        <div className="inner">
+          <h1> <span>A</span>BO <br /> 
+            <span>__</span> UT <br />
+            ME
+          </h1>
+        </div>
+      </figure>
       
       <div className="inner">
 
