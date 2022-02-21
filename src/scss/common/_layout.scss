@@ -17,10 +17,12 @@
         font: 150px/1 'Nanum Myeongjo'; color: #eee;
         letter-spacing: 2px;
         position: relative;
+        transform: translateX(-150px); opacity: 0; transition: 1s;
 
         span{ 
           font-style: italic; 
           letter-spacing: 10px;
+
           &:nth-of-type(2){color: #272727; letter-spacing: 20px; }
         }
 
@@ -33,13 +35,15 @@
       >p{
         width: 40%;
         font: 15px/1.7 'arial'; color: #888;
-        position: absolute; bottom: 0; right: 0;
+        position: absolute; bottom: 20px; right: 0;
+        opacity: 0; transition: 0.5s 0.5s;
       }
     }
   }
 
   >.inner {
-    width: 1180px; margin: 0px auto; padding-top: 120px; transform: translateY(100px); opacity: 0; transition: 1s;
+    width: 1180px; margin: 0px auto; padding-top: 120px; 
+    transform: translateY(100px); opacity: 0; transition: 1s 0.5s;
 
     >h1{ 
       margin-bottom: 100px; 
@@ -52,10 +56,14 @@
     }
   }
 
-  &.on {   
-    >.inner {
-      transform: translateY(0px); opacity: 1;
+  &.on { 
+    >figure{
+      >.inner{
+        >h1{ transform: translateX(0px); opacity: 1; }
+        >p{ opacity: 1; }
+      }
     }
+    >.inner { transform: translateY(0px); opacity: 1; }
   }
 }
 

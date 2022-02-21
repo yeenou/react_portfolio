@@ -30,7 +30,9 @@ export default function Youtube(){
       </figure>
       
       <div className="inner">
-        <h1>Youtube</h1>
+        
+        <h1>OUR <span>VIDEOS</span></h1>
+        
         <section>
           {vidData.map((item,idx)=>{
             let tit = item.snippet.title;
@@ -62,6 +64,7 @@ export default function Youtube(){
           </div>
 
         </section>
+        
       </div>
     </main>
 

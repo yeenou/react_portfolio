@@ -121,7 +121,7 @@ export default function Join(){
         </div>
       </figure>
 
-      <img src={path+'/img/join1.jpg'} alt="" />
+      {/* <img src={path+'/img/join1.jpg'} alt="" /> */}
       
       <div className="inner">
         <h1>Join</h1>
