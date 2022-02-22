@@ -78,6 +78,16 @@ export default function Department(){
           </div>
         </div>
 
+        <div className="ceoAbout">
+          <div className="pic">
+            <img src="" alt="" />
+          </div>
+          <div className="txt">
+            <h2>Lorem, ipsum.</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, saepe quae doloribus quo cumque recusandae modi consectetur dicta molestias. Quis ut alias aperiam quam cum temporibus ducimus laborum in cupiditate ipsum, dolor sit amet consectetur adipisicing elit. Error, saepe quae doloribus quo cumque recusandae modi consectetur dicta molestias. Quis ut alias aperiam quam cum temporibus ducimus.</p>
+          </div>        
+        </div>
+
 
 
         <div className="memberAbout">
