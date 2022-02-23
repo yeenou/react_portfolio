@@ -69,7 +69,14 @@
           .btns{
             width: 100%;
 
-            button{}
+            button{
+              width: 80px; height: 40px;
+              background: none; //#c5a57c; 
+              border: none; 
+              color: #ccc; cursor: pointer;
+    
+              &:last-child{ margin-left: 50px; }
+            }
           }
         }
       }

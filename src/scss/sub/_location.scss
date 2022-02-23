@@ -28,8 +28,8 @@
       
       .send{
         width: 45%;
-        border-right: 1px solid rgb(50, 50, 50);
-        border-left: 1px solid rgb(50, 50, 50);
+        border-right: 1px solid #2c2c2c;  //rgb(50, 50, 50);
+        border-left: 1px solid #2c2c2c;
         padding: 446px 60px 200px 60px;
         position: relative;
 
@@ -57,15 +57,15 @@
 
         &::after{
           content: ''; display: block;
-          width: 120%; height: 2px; background: rgb(50, 50, 50);
+          width: 120%; height: 2px; background: #2c2c2c;
           position: absolute; bottom: 60px; left: -10%;
         }
       }
 
       .oas{
         width: 45%;
-        border-right: 1px solid rgb(50, 50, 50);
-        border-left: 1px solid rgb(50, 50, 50);
+        border-right: 1px solid #2c2c2c;
+        border-left: 1px solid #2c2c2c;
         padding: 316px 60px 200px 60px;
 
         >article{
@@ -93,7 +93,7 @@
     }
   }
 
-  >section {
+  #location {
     width: 100%; height: 500px; position: relative;
     
     .branch{ 
@@ -124,11 +124,21 @@
       width: 40%; height: 100%;
       background:rgba(197, 165, 124, 0.8);
       position: absolute; bottom: 0; right: 0;
-      //border: 1px solid red; 
+      padding: 80px;
+      
+      h2{ 
+        font:bold 16px/1 'Poppins'; color: #ddd;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+      }
+      p{
+        font:bold 14px/2 'Poppins'; color: #ccc;
+        margin-bottom: 50px; padding-left: 30px; 
+      }
 
       &::after{
-        content: 'location'; display: block; 
-        font: bold 80px/1 'arial'; color: #c5a57c; 
+        content: 'LOCATION'; display: block; 
+        font: bold 60px/1 'arial'; color: #ba9d79; // #c5a57c; 
         letter-spacing: 18px;
         position: absolute; right: -160px; top: 200px;
         transform: rotate(-90deg);
@@ -159,6 +169,25 @@
 
       img{ width: 100%; object-fit: cover; } 
 
+      
+      .btn{
+        display: block;
+        width: 16px; height: 16px; background: #c5a57c;
+        border-radius: 25px; z-index: 5;
+        box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6);
+        cursor: pointer;
+
+        &.on{
+          animation: ani 1.2s linear 0s infinite; 
+          // animation : 이름 진행시간 가속도 지연시간 반복횟수
+        }
+      }
+
+      .america{ position: absolute; top: 476px; left: 295px; }
+      .europe{ position: absolute; top: 440px; left: 575px; }
+      .australia{ position: absolute; bottom: 300px; right: 180px; }
+      .asia{ position: absolute; top: 440px; right: 220px; }
+
       .txtbox{
         width: 190px; height: 200px;
         padding: 25px;
@@ -174,38 +203,15 @@
           font:bold 14px/2 'Poppins'; color: #bbb;
         }
       }
-
-      &::before{
-        content: ''; display: block;
-        width: 16px; height: 16px; background: #c5a57c;
-        border-radius: 25px; z-index: 5;
-        box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6);
-        position: absolute; top: 476px; left: 295px;
-      } //america
-      &::after{
-        content: ''; display: block;
-        width: 16px; height: 16px; background: #c5a57c;
-        border-radius: 25px; z-index: 5;
-        box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6);
-        position: absolute; top: 440px; left: 575px;
-      } //europe
     }
-
-    &::before{
-      content: ''; display: block;
-      width: 16px; height: 16px; background: #c5a57c;
-      border-radius: 25px; z-index: 5;
-      box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6);
-      position: absolute; bottom: 300px; right: 180px;
-    } //australia
-    &::after{
-      content: ''; display: block;
-      width: 16px; height: 16px; background: #c5a57c;
-      border-radius: 25px; z-index: 5;
-      box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6);
-      position: absolute; top: 440px; right: 220px;
-    } //asia
   }
 }
 
 // #c5a57c = rgb(197, 165, 124)
+
+
+@keyframes ani{
+  0%{ box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6); }
+  50%{ box-shadow: 0px 0px 20px 16px rgba(197, 165, 124, 0.6); }
+  100%{ box-shadow: 0px 0px 20px 10px rgba(197, 165, 124, 0.6); }
+}

@@ -41,12 +41,11 @@
                         padding-right: 10px;
                     }
 
-                    svg{
+                    svg {
                         width: 50px; height: 50px;
+                        color: #c5a57c; 
                         margin-bottom: 10px;
-
-                        border: 1px solid red;
-                    }
+                      }
 
                     h3{
                         font: bold 22px/1 'Montserrat'; color: #bcbcbc;
@@ -60,11 +59,7 @@
                         //height: 100%; 
                         padding: 300px 0 150px 0; 
 
-                        img{
-                            width: 100%; height: 100%; object-fit: cover;
-
-                            //border: 1px solid red;
-                        }
+                        img{ width: 100%; height: 100%; object-fit: cover; }
                     }
                 }
 

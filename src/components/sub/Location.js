@@ -121,7 +121,7 @@ export default function Location(){
         </div>
       </div>
 
-      <section>
+      <section id="location">
         <nav className="branch">
           {mapInfo.map((data, idx)=>{
             return <button key={idx} onClick={()=>setIndex(idx)}>{data.title}</button>
@@ -130,25 +130,28 @@ export default function Location(){
 
         <div id="map" ref={container}></div>
 
-        <div className="mapBox"></div>
-
-          {/* <nav className='traffic'>
-            <button onClick={()=>{
-              map.addOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-            }}>교통정보 보기</button>
-            
-            <button onClick={()=>{
-              map.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
-            }}>교통정보 끄기</button>
-          </nav> */}
-          
+        <div className="mapBox">
+          <h2>■ HEAD OFFICE</h2>
+          <p>Lorem ipsum do, <br /> 
+          sit amet elit. Facil is, iste! <br /> 
+          sit amet elit. Facil is, iste. <br /> 
+          sit amet elit. Facil is, iste.</p>
+          <h2>■ Lorem.</h2>
+          <p>Lorem ipsum do, <br /> 
+          sit amet elit. Facil is, iste! </p>
+        </div>  
       </section>
 
       <div className="innerWorldMap">
-
         <h1>WE ARE <span>WORLDWIDE</span></h1>
         <div className="worldMap">
           <img src={path+'/img/worldMap.jpg'} alt="" />
+          
+          <div className="btn america on"></div>
+          <div className="btn europe"></div>
+          <div className="btn australia"></div>
+          <div className="btn asia"></div>
+
           <div className="txtbox">
             <h2>NEW YORK</h2>
             <p>Lorem ipsum do, <br /> 

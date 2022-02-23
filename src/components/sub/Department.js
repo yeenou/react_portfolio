@@ -2,6 +2,12 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { setMembers } from '../../redux/actions';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faKaaba } from '@fortawesome/free-solid-svg-icons'
+import { faCity } from '@fortawesome/free-solid-svg-icons'
+import { faGem } from '@fortawesome/free-solid-svg-icons'
+
+
 /*
   redux작업 흐름
   1 - 전역으로 상태관리할 값을 카테고리별로 reducer생성
@@ -47,7 +53,7 @@ export default function Department(){
         <div className="inner">
           <h1> <span>A</span>BO <br /> 
             <span>__</span> UT <br />
-            ME
+            US
           </h1>
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum atque, molestias voluptas maiores deserunt ea! Deleniti molestiae obcaecati amet. Consequatur itaque dolores quos veritatis eaque, minus quisquam fugit corporis commodi rem architecto nisi, quia laboriosam obcaecati accusamus ea laudantium facere et, provident eligendi voluptatibus expedita nesciunt! Ab, quo rem?</p>
         </div>
@@ -64,12 +70,11 @@ export default function Department(){
             </article>
             <article>
               <h2>our <br /> specialization:</h2>
-
-              <svg></svg>
+              <FontAwesomeIcon icon={faKaaba} />
               <h3>ARCHITECTURE</h3>
-              <svg></svg>
+              <FontAwesomeIcon icon={faCity} />
               <h3>INTERIORS</h3>
-              <svg></svg>
+              <FontAwesomeIcon icon={faGem} />
               <h3>PLANING</h3>
             </article>
             <article>
@@ -89,7 +94,6 @@ export default function Department(){
             <span>ceo.mm</span>
           </div>        
         </div>
-
 
         <div className="memberAbout">
           <h1>OUR <span>TEAMS</span></h1>
