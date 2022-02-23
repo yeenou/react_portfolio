@@ -78,7 +78,7 @@ export default function Department(){
               <h3>PLANING</h3>
             </article>
             <article>
-              <img src={path+ '/img/mo.jpg'} alt="" />
+              <img src={path+ '/img/about.jpg'} alt="" />
               </article>
           </div>
         </div>
