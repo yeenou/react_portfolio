@@ -80,21 +80,20 @@ export default function Department(){
 
         <div className="ceoAbout">
           <div className="pic">
-            <img src="" alt="" />
+            <img src={path+ '/img/ceo.jpg'} alt="" />
           </div>
           <div className="txt">
             <h2>Lorem, ipsum.</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, saepe quae doloribus quo cumque recusandae modi consectetur dicta molestias. Quis ut alias aperiam quam cum temporibus ducimus laborum in cupiditate ipsum, dolor sit amet consectetur adipisicing elit. Error, saepe quae doloribus quo cumque recusandae modi consectetur dicta molestias. Quis ut alias aperiam quam cum temporibus ducimus.</p>
+            <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium quod sit unde repudiandae quis cumque officiis officia voluptatibus architecto similique eligendi eos voluptatum vel sequi aliquam assumenda, obcaecati optio eveniet vitae at voluptatem numquam distinctio placeat! Voluptates tempora quibusdam dolorum nam et doloremque. Quasi adipisci fugit, cupiditate omnis eligendi similique illo? Voluptas amet deleniti repudiandae? Odit enim molestiae ullam. Doloremque est modi ratione veniam neque earum et nostrum error ut, pariatur, omnis ipsam ullam quia  mollitia illo magni, dolores optio alias repellendus? Sed nihil iusto omnis accusamus alias. <br />
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium deleniti cum sit corporis vero nam quis! Voluptatibus ipsum, vero enim tempora, natus impedit est consequatur dolore accusamus hic perferendis repellat amet, commodi maxime aliquam iusto! Totam possimus ut eaque asperiores dolore, soluta praesentium, sequi officia incidunt veritatis vitae illo corporis impedit. Rerum sapiente sunt, illum et vero quas expedita numquam ullam! Sed unde in distinctio consectetur aperiam pariatur fugiat repellendus quidem molestias quos, architecto sint esse animi nulla hic veniam saepe? Mollitia itaque nostrum tenetur quos aperiam. Nihil, molestiae? Temporibus, laudantium veritatis consectetur deserunt iste magnam, blanditiis sunt quaerat officiis, odio tempore alias. Hic deserunt ab repellendus facilis, aspernatur, suscipit reprehenderit, maiores eum voluptatem quidem excepturi? Fugit voluptatum quas explicabo sint esse animi nulla hic veniam saepe.</p>
+            <span>ceo.mm</span>
           </div>        
         </div>
-
 
 
         <div className="memberAbout">
           <h1>OUR <span>TEAMS</span></h1>
           
-
-
           
           {/* <button onClick={()=>{ dispatch(setMembers(newMember)) }}>멤버변경</button> */}
           
