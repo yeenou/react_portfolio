@@ -1,177 +1,85 @@
+.join{
+  >figure {
+    >.inner{
+      >h1{
+        span{ letter-spacing: 20px; }
+      }
+    }
+  }
+}
+
 .success {
   width: 100%; padding: 20px; background: lightcyan; font: bold 16px/1 '맑은 고딕'; color: cornflowerblue; margin-bottom: 50px;
 }
 
 
+.inner{
+  h1{}
+  section{
+    width: 100%; padding: 300px 0 150px 0; 
 
-.join{
-  position: relative;
-
-  >img{
-    width: 100%; height: calc(100% - 16% ); //footer 값 수정
-    object-fit: cover;
-    filter: blur(10px);
-    z-index: -10;
-    position: absolute;
-  }
-  
-  .inner{
-    position: relative;
-    padding-bottom:150px;
-
-    h1{ 
-      color: #eee;
-
-      // &::before{
-      //   content: ''; display: block;
-      //   width: 70px; height: 50px; background: #fff;
-      //   transform: rotateZ(-45deg);
-      //   position: absolute; top: 6%; left: -2.5%;
-      //   z-index: 5;
-      //   border-bottom: 3px solid #333;
-      //   //border: 1px solid #ddd;
-      // }
-    }
-
-    .wrap{
-      width: 100%; margin-bottom: 100px; padding: 40px;
-      //background: #eee;
-      display: flex; justify-content: space-between;
-
-      article{
-        width: 22%;
-        position: relative;
-        opacity: 0.7;
-
-        h2{
-          margin: 20px 0; color: #eee;
-        }
-        p{
-          //font: bold 14px/1 'arial'; 
-          color: #eee;
-        }
-
-        &::before{
-          content: ''; display: block;
-          width: 16px; height: 16px; background: #bbb;
-          border-radius: 25px;
-        }
-
-        &::after{
-          content: ''; display: block;
-          width: 70%; height: 0px; 
-          border-bottom: 4px dotted #bbb;
-          position: absolute; top: 2%; left: 10%;
-        }
-
-        &.on{ opacity: 1; }
-      }
-    }
-    
-    section{
-      width: 100%; position: relative;
-      padding: 0 50px;
-      display: flex;
-      border-radius: 30px;
-      //box-shadow:10px 10px 20px rgba(0, 0, 0, 0.2);
-
-      .pic{
-        width: 35%; position: relative;
-        //border-radius: 30px 0px 0px 30px;
-
-        >img{
-          width: 100%; height: 100%;
-          object-fit: cover;
-          border-radius: 30px 0px 0px 30px;
-        }
-
-        h2{
-          position: absolute; top: 40%; left: 50%;
-          transform: translateX(-50%);
-          font: bold 36px/1 'Maven Pro'; color: #eee;
-        }
-        p{
-          position: absolute; top: 50%; left: 50%;
-          transform: translateX(-50%);
-          font: 18px/1 'Maven Pro'; color: #eee;
-        }
-      }
-
-      form{
-        width: 65%; padding: 50px; 
-        background: #fff;
-        //background:rgb(22, 22, 22);
-
-        border-radius: 0px 30px 30px 0px;
-
-        fieldset{
-
-          table {
-            width: 100%; 
-            border: none;
+    form{
+      fieldset{
+        table {
+          width: 100%; 
+          border-top: 2px solid #2c2c2c; border-bottom: 2px solid #2c2c2c;
           
-            th, td {
-              border-bottom: 1px solid #ddd; 
-              padding: 10px 20px; 
-            }
-          
-            th {
-              width: 30%; //border-right: 1px solid #ddd; 
-              text-align: left; font: bold 14px/1 'Maven Pro'; color: #555;
-          
-              &:last-child{ border-bottom: none; }
-
-              &.btnSet {
-                text-align: center;
-          
-                input[type=reset], input[type=submit] {
-                  width: 150px; height: 40px; border: 1px solid #555; text-align: center; margin: 10px; cursor: pointer; transition: 0.5s;
-          
-          
-                  border: none; border-radius: 25px;
-          
-                  &:hover {
-                    background: #555; color: #fff;
-                  }
+        
+          th, td {
+            border-bottom: 2px solid #2c2c2c; 
+            padding: 20px 40px;
+          }
+        
+          th {
+            width: 30%; border-right: 2px solid #2c2c2c; 
+            text-align: right; font: bold 15px/1 'Poppins'; color: #ccc;
+        
+            &.btnSet {
+              text-align: center;
+        
+              input[type=reset], input[type=submit] {
+                width: 150px; height: 50px; 
+                border: none; background: #c5a57c;
+                font:bold 14px/1 "Poppins"; color: #ccc;
+                letter-spacing: 2px; text-align: center; 
+                margin: 10px; cursor: pointer; 
+                transition: 0.5s;
+        
+                &:hover {
+                  background: #555; color: #fff;
                 }
               }
             }
-          
-            td {
-              input[type=text], input[type=password], select {
-                width: 100%; padding: 10px 0px; 
-                border: none; 
-
-                //option{ letter-spacing: 2px; }
-              }
-              textarea {
-                width: 100%; height: 200px; padding: 10px 20px; 
-                border: 1px solid #ddd; 
-                resize: none;
-              }
-              label {
-                font: 13px/1 'Maven Pro'; color: #777; margin-right: 5px; 
-
-                letter-spacing: 2px;
-              }
-              input[type=radio], input[type=checkbox] {
-                margin-right: 20px;
-          
-          
-                //border: none; border-bottom: 1px solid #ddd;
-          
-              }
-              .err {
-                font: 11px/1 '맑은 고딕'; color: hotpink; display: block; margin: 5px 0px;
-              }
+          }
+        
+          td {
+            input[type=text], input[type=password], select {
+              width: 60%; padding: 10px 20px; 
+              border: none; border-bottom: 2px solid #555; 
+              background: none;
+              font: 14px/1 'Poppins'; color:#555;
+            }
+            textarea {
+              width: 60%; height: 150px; padding: 10px 20px; 
+              border: 2px solid #555; background: none; 
+              resize: none;
+            }
+            label {
+              font: 14px/1 'Poppins'; color: #555; margin-right: 5px;
+            }
+            input[type=radio], input[type=checkbox] {
+              margin-right: 20px;
+            }
+            .err {
+              font: 11px/1 '맑은 고딕'; color: red; display: block; margin: 5px 0px;
             }
           }
         }
+        
       }
     }
   }
 }
-  
 
 
 
@@ -184,44 +92,40 @@
 
 
 
-// table {
-//   width: 100%; border-top: 2px solid #333; border-bottom: 2px solid #333;
 
-//   th, td {
-//     border-bottom: 1px solid #ddd; padding: 10px 30px;
-//   }
 
-//   th {
-//     width: 20%; border-right: 1px solid #ddd; text-align: left; font: bold 14px/1 'arial'; color: #555;
 
-//     &.btnSet {
-//       text-align: center;
+// .wrap{
+//   width: 100%; margin-bottom: 100px; padding: 40px;
+//   //background: #eee;
+//   display: flex; justify-content: space-between;
 
-//       input[type=reset], input[type=submit] {
-//         width: 150px; height: 30px; border: 1px solid #555; text-align: center; margin: 10px; cursor: pointer; transition: 0.5s;
+//   article{
+//     width: 22%;
+//     position: relative;
+//     opacity: 0.7;
 
-//         &:hover {
-//           background: #555; color: #fff;
-//         }
-//       }
+//     h2{
+//       margin: 20px 0; color: #eee;
 //     }
-//   }
+//     p{
+//       //font: bold 14px/1 'Poppins'; 
+//       color: #eee;
+//     }
 
-//   td {
-//     input[type=text], input[type=password], select {
-//       width: 60%; padding: 7px 20px; border: 1px solid #aaa;
+//     &::before{
+//       content: ''; display: block;
+//       width: 16px; height: 16px; background: #bbb;
+//       border-radius: 25px;
 //     }
-//     textarea {
-//       width: 60%; height: 150px; padding: 10px 20px; border: 1px solid #aaa; resize: none;
+
+//     &::after{
+//       content: ''; display: block;
+//       width: 70%; height: 0px; 
+//       border-bottom: 4px dotted #bbb;
+//       position: absolute; top: 2%; left: 10%;
 //     }
-//     label {
-//       font: 12px/1 'arial'; color: #777; margin-right: 5px;
-//     }
-//     input[type=radio], input[type=checkbox] {
-//       margin-right: 20px;
-//     }
-//     .err {
-//       font: 11px/1 '맑은 고딕'; color: hotpink; display: block; margin: 5px 0px;
-//     }
+
+//     &.on{ opacity: 1; }
 //   }
 // }
