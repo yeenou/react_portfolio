@@ -115,7 +115,7 @@ export default function Community(){
       </figure>
       
       <div className="inner">
-        <h1>Community</h1>
+        <h1><span>COMMUNITY</span></h1>
 
         <section>
           <div className='inputBox'>

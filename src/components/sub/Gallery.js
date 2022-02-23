@@ -8,13 +8,17 @@ export default function Gallery(){
   const main = useRef(null);
   const frame = useRef(null);
   const input = useRef(null); // input값 참조
+
   const picData = useSelector(state=>state.flickrReducer.flickr); 
+
   const [isPop, setIsPop] = useState(false);
   const [index, setIndex] = useState(0); 
   const [loading, setLoading] = useState(true);
   const [enableClick, setEnableClick] = useState(true); 
   const [isInterest, setIsInterest] = useState(true);
-  const path = process.env.PUBLIC_URL;  
+
+  const path = process.env.PUBLIC_URL; 
+
   const dispatch = useDispatch();
 
   const masonryOptions = {
@@ -26,7 +30,7 @@ export default function Gallery(){
 
    // flickr 
   const getFlickr = async opt =>{
-    const api_key = '89aae050d1d8c006bdb5bf866029199d';
+    const api_key = 'd5ed279c6af8a6b280a6848dd230330d';  //d5ed279c6af8a6b280a6848dd230330d
     const method1 = 'flickr.interestingness.getList';
     const method2 = 'flickr.photos.search'
     const num = opt.count;
@@ -39,16 +43,19 @@ export default function Gallery(){
       url = `https://www.flickr.com/services/rest/?method=${method2}&per_page=${num}&api_key=${api_key}&format=json&nojsoncallback=1&tags=${opt.tags}`;
     }  
 
-    await axios.get(url).then(json=>{ 
-      if(json.data.photos.photo.length === 0){
-        alert('해당 검색어의 이미지가 없습니다.');
-        return;
-      }
-      dispatch(setFlickr(json.data.photos.photo));      
-    })
+    await axios
+      .get(url)
+      .then(json=>{ 
+        if(json.data.photos.photo.length === 0){
+          alert('해당 검색어의 이미지가 없습니다.');
+          return;
+        }
+        dispatch(setFlickr(json.data.photos.photo));      
+      })
 
     setTimeout(()=>{
       frame.current.classList.add('on');
+
       setLoading(false);
       setTimeout(()=>{
         setEnableClick(true);
@@ -65,7 +72,7 @@ export default function Gallery(){
 
       getFlickr({
         type: 'interest',
-        count: 50
+        count: 25
       });
     }
   }
@@ -88,7 +95,7 @@ export default function Gallery(){
 
       getFlickr({
         type: 'search',
-        count: 50,
+        count: 25,
         tags: result
       });
     }
@@ -112,7 +119,7 @@ export default function Gallery(){
 
       getFlickr({
         type: 'search',
-        count: 50,
+        count: 25,
         tags: result
       });
     }
@@ -140,7 +147,7 @@ export default function Gallery(){
       
       <div className='innerWrap'>
         <div className="inner">     
-          <h1 onClick={showInterest}>Gallery</h1> 
+          <h1 onClick={showInterest}><span>GALLERY</span></h1>
           
           <div className="searchBox">
             <input type="text" ref={input} onKeyUp={showSearchEnter} placeholder='검색어를 입력하세요' />

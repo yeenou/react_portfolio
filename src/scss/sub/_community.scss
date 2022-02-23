@@ -1,17 +1,22 @@
 .community {
-  //background:rgb(22, 22, 22);
-
   .inner {
-
     h1{}
-
     >section {
-      width: 100%;
+      width: 100%; padding: 300px 0 150px 0;
+      border-left: 2px solid #2c2c2c;
+      border-right: 2px solid #2c2c2c;
+
+      &::after{
+        content: 'community'; display: block; 
+        font: bold 212px/1 'arial'; color: #2d2d2d; 
+        letter-spacing: 5px;
+        position: absolute; left: -800px; top: 220px;
+        z-index: -5;
+    }
 
       .inputBox {
-        width: 100%; padding: 60px; 
+        width: 100%;
         margin-bottom: 50px; 
-
         text-align: center;
       
         
@@ -32,7 +37,7 @@
         button{
           width: 80px; height: 40px;
           background: #c5a57c; 
-          color: #ccc;
+          color: #ccc; cursor: pointer;
 
           &:last-child{ margin-left: 50px; }
         }

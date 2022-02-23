@@ -52,7 +52,7 @@
           background: #c5a57c; 
           font:bold 14px/1 "Poppins"; color: #ccc;
           letter-spacing: 2px;
-          border: none;
+          border: none; cursor: pointer;
         }
 
         &::after{
@@ -125,6 +125,15 @@
       background:rgba(197, 165, 124, 0.8);
       position: absolute; bottom: 0; right: 0;
       //border: 1px solid red; 
+
+      &::after{
+        content: 'location'; display: block; 
+        font: bold 80px/1 'arial'; color: #c5a57c; 
+        letter-spacing: 18px;
+        position: absolute; right: -160px; top: 200px;
+        transform: rotate(-90deg);
+        z-index: 5;
+      }
     }
   }
 
@@ -142,12 +151,13 @@
     }
 
     .worldMap{
+      width: 100%;
       border-left: 2px solid #2c2c2c;
       border-right: 2px solid #2c2c2c;
       padding: 300px 0 150px 0;
-      position: relative;
+      position: relative; overflow: hidden;
 
-      img{ width: 100%; } 
+      img{ width: 100%; object-fit: cover; } 
 
       .txtbox{
         width: 190px; height: 200px;
