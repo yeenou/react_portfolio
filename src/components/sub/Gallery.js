@@ -135,7 +135,7 @@ export default function Gallery(){
   return (
     <>
     <main className="content gallery" ref={main}>
-      <figure>
+      <figure className="subVisual">
         <div className="inner">
           <h1> <span>G</span>AL <br /> 
             <span>__</span> LE <br />

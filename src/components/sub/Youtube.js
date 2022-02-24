@@ -19,7 +19,7 @@ export default function Youtube(){
   return (
     <>
     <main className="content youtube" ref={main}>
-      <figure>
+      <figure className="subVisual">
         <div className="inner">
           <h1> <span>Y</span>OU <br /> 
             <span>__</span> TU <br />

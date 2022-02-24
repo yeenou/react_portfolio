@@ -6,7 +6,7 @@ import 'swiper/css/pagination';
 
 export default function Visual(){ 
   return (
-    <figure className='myScroll'>
+    <figure className='mainVisual myScroll'>
       <Swiper
         modules={[Navigation, Pagination]}
         spaceBetween={0}

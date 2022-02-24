@@ -49,7 +49,7 @@ export default function Department(){
 
   return (
     <main className="content department" ref={main}>
-      <figure>
+      <figure className="subVisual">
         <div className="inner">
           <h1> <span>A</span>BO <br /> 
             <span>__</span> UT <br />

@@ -111,7 +111,7 @@ export default function Join(){
 
   return (
     <main className="content join" ref={main}>
-      <figure>
+      <figure className="subVisual">
         <div className="inner">
           <h1> <span>S</span>IG <br /> 
             <span>__</span> N <br />
