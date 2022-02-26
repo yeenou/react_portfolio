@@ -28,7 +28,7 @@ export default function Pics(){
         
         <ul>
           {picData.map((pic,idx)=>{
-            if(idx<10){
+            if(idx<6){
               return (
                 <li key={idx}>
                   <img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} />
