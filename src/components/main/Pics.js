@@ -24,11 +24,11 @@ export default function Pics(){
 
   return (
     <section id="pics">
-      <div className='inner'>
+      {/* <div className='inner'> */}
         
         <ul>
           {picData.map((pic,idx)=>{
-            if(idx<6){
+            if(idx<8){
               return (
                 <li key={idx}>
                   <img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} />
@@ -37,7 +37,7 @@ export default function Pics(){
             }          
           })}
         </ul>
-      </div>
+      {/* </div> */}
     </section>
   )
 }

@@ -66,9 +66,9 @@ export default function Main(){
       <Header type={'main'} />
       <Visual />
       <Intro />
-      <News />
-      <Info />    
       <Pics />
+      <News />
+      <Info /> 
       <Btns getIndex={getIndex} />
     </div>
   )
