@@ -81,9 +81,17 @@
             //border: 1px solid red; 
             
             >.pic{
-                width: calc(100% / 2); height: 100%; 
+                width: calc(100% / 2); height: 100%; position: relative;
 
-                img{  width: 100%; height: 100%; object-fit: cover; filter: saturate(60%); }
+                //border: 1px solid red; 
+
+                img{  width: 90%; height: 90%; object-fit: cover; filter: saturate(60%); }
+
+                &::before{ 
+                    content: ''; display: block; 
+                    width: 90%; height: 90%; border: 10px solid #2c2c2c;
+                    position: absolute; bottom: 0; right: 0;
+                }
             }
 
             >.txt{
