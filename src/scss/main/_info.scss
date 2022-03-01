@@ -9,9 +9,6 @@
     border-left: 2px solid #2d2d2d;
     border-right: 2px solid #2d2d2d;
 
-
-    border: 2px solid blueviolet;
-
     h1 {
       font: bold 45px/1 'Oswald'; color: #c5a57c;
       text-align: center; letter-spacing: 8px;
@@ -19,15 +16,22 @@
       //span{ color: #eee; }
     } 
 
+
+
     .swiper-wrapper {
-      width: 100%; height: 300px; padding: 100px 0px; 
+      width: 100%; height: 600px; //padding: 100px 0px; 
+
+      border: 2px solid blueviolet;
 
       .swiper {
         height: 100%;
 
         .swiper-slide {
-          background: hotpink; height: 100%; width: 30vw; font-size: 70px;
+          background: hotpink; height: 100%; //width: 30vw; 
+          font-size: 70px;
           display: flex; justify-content: center; align-items: center; color: #fff;
+
+          //h2{font-size: 40px;}
         }
       }
     }
