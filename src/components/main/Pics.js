@@ -24,20 +24,25 @@ export default function Pics(){
 
   return (
     <section id="pics">
-      {/* <div className='inner'> */}
-        
+      <div className='inner'>
+        <h1>Gallery</h1>
+
         <ul>
           {picData.map((pic,idx)=>{
-            if(idx<8){
+            if(idx<6){
               return (
                 <li key={idx}>
                   <img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} />
+                  <div className="txt">
+                    <h2>Lorem, ipsum.</h2>
+                    <span>lorem</span>
+                  </div>
                 </li>
               )
             }          
           })}
         </ul>
-      {/* </div> */}
+      </div>
     </section>
   )
 }
