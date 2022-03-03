@@ -5,6 +5,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 export default function Visual(){ 
+  const path = process.env.PUBLIC_URL;
+
   return (
     <figure className='mainVisual myScroll'>
       <Swiper
@@ -15,8 +17,14 @@ export default function Visual(){
         navigation 
         pagination={{clickable:true}}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>
+          <img src={path+ '/img/visual1.jpg'} alt="" />
+          <h2>LOREM</h2>
+          </SwiperSlide>
+        <SwiperSlide>
+          <img src={path+ '/img/visual2.jpg'} alt="" />
+          <h2>LOREM</h2>
+          </SwiperSlide>
         <SwiperSlide>Slide 3</SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>   
       </Swiper>
