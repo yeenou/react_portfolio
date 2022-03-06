@@ -65,10 +65,10 @@ export default function Main(){
     <div id='mainWrap' ref={main}>
       <Header type={'main'} />
       <Visual />
-      <Intro />
       <Pics />
       <News />
       <Info /> 
+      <Intro />
       <Btns getIndex={getIndex} />
     </div>
   )
