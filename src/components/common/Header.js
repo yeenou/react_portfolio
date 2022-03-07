@@ -34,7 +34,7 @@ function Gnb(props){
   const active = {color: '#c5a57c'}
   return (
     <ul id="gnb" onClick={props.toggleNav}>
-      <li><NavLink activeStyle={active} to='/department'>Department</NavLink></li>
+      <li><NavLink activeStyle={active} to='/department'>About</NavLink></li>
       <li><NavLink activeStyle={active} to='/community'>Community</NavLink></li>
       <li><NavLink activeStyle={active} to='/gallery'>Gallery</NavLink></li>
       <li><NavLink activeStyle={active} to='/youtube'>Youtube</NavLink></li>
