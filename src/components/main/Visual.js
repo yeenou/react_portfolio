@@ -25,7 +25,10 @@ export default function Visual(){
           <img src={path+ '/img/visual2.jpg'} alt="" />
           <h2>LOREM</h2>
           </SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>
+          <img src={path+ '/img/visual3.jpg'} alt="" />
+          <h2>LOREM</h2>
+        </SwiperSlide>
         <SwiperSlide>Slide 4</SwiperSlide>   
       </Swiper>
     </figure>
