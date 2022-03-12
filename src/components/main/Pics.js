@@ -29,14 +29,18 @@ export default function Pics(){
 
         <ul>
           {picData.map((pic,idx)=>{
-            if(idx<6){
+            if(idx<3){
               return (
                 <li key={idx}>
-                  <img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} />
                   <div className="txt">
                     <h2>Lorem, ipsum.</h2>
                     <span>lorem</span>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, odio distinctio. Dolor nemo officia accusamus natus, tenetur nesciunt vitae quibusdam consequuntur nulla ab assumenda laborum voluptatum aspernatur quae, soluta magnam!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere iure numquam doloribus quas nostrum ducimus enim, nobis magni. Repellat voluptatibus quasi error laborum animi magnam!</p>
                   </div>
+
+                  <img src={`https://live.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}_m.jpg`} />
+                  
                 </li>
               )
             }          

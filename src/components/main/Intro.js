@@ -7,7 +7,8 @@ export default function Intro(){
   return (
     <section id='intro' className='myScroll'>
       <div className="inner">
-        <h1>Introduction</h1>
+        {/* <h1>Introduction</h1> */}
+        <h1>Members</h1>
 
         <ul>
           {members.map((member,idx)=>{

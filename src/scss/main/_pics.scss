@@ -16,33 +16,38 @@
       margin-bottom: 150px; z-index: 5;
     }
 
+
     ul {
-      width: 100%; display: flex; flex-wrap: wrap;
+      width: 100%; 
 
       li{
-        width: 31%; height: 20vw; 
-        margin-right: 3.5%; margin-bottom: 3.5%; 
-        position: relative;
+        width: 100%; height: 20vw;  
+        padding: 50px 0;
+        display: flex; flex-wrap: wrap;
 
-        &:nth-of-type(3n) { margin-right: 0; }
-
-        img{
-          width: 100%; height: 100%; object-fit: cover; //filter: saturate(20%);
-        }
+        //border: 1px solid hotpink;
 
         .txt{
-          width: 40%; height: 7vw; padding: 5%; //margin: 0 auto;
-          position: absolute; bottom: 0; left: 0;
-          z-index: 2;
-          background: #272727;
+          width: 67%; height: 100%; padding-right: 15%; 
 
           h2{
-            font: 16px/1 'arial'; color: #eee;
+            font: 28px/1 'Poppins'; color: #eee;
             margin-bottom: 2%;
           }
           span{
-            font: 12px/1 'arial'; color: #bbb;
+            font: 20px/1 'Poppins'; color: #777;
+            margin-bottom: 5%; display: block;
           }
+          p{
+            font: 14px/1.4 'Poppins'; color: #aaa; letter-spacing: 2px;
+            margin-bottom: 18px;
+          }
+        }
+
+        img{ width: 33%; height: 100%; object-fit: cover; opacity: 0.8; transition: 0.5s; }
+
+        &:hover{
+          img{ opacity: 1; }
         }
       }
     }
