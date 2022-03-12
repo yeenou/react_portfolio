@@ -33,12 +33,18 @@ export default function News(){
       <div className="inner">
         <h1>Recent Post</h1>
         
+        <div className="txt">
+          <h2>WHY IPSUM DOLOR ?</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem dolor doloremque veritatis iure sunt reprehenderit aperiam modi quis vero explicabo necessitatibus culpa totam debitis quasi molestias harum, at natus hic!</p>
+          <a href="">ABOUT US</a>
+        </div>
+
         <ul>
           {posts.map((post, idx)=>{
-            if(idx < 4) {
+            if(idx < 3) {
               return (              
                 <li key={idx}>
-                  <h2>{post.title}</h2>
+                  <h2> <span> + </span> {post.title}</h2>
                   <p>{post.content}</p>
                 </li>
               )
