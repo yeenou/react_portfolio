@@ -1,7 +1,6 @@
 #info {
   width: 100%; background: #272727; 
-
-  border: 2px solid red;
+  //border: 2px solid red;
 
   .inner {
     width: 1180px; position: relative; 
@@ -18,18 +17,20 @@
 
     .swiper {
       //height: 100%;
+      // .swiper-button{
+      //   background: #aaa;
+      // }
 
       .swiper-wrapper {
-        width: 100%; height: 360px;  
+        width: 100%; height: 300px;  
         //border: 2px solid blueviolet;        
 
         .swiper-slide {
           display: flex; justify-content: center; align-items: center; 
-
-          border: 1px solid hotpink;
+          //border: 1px solid hotpink;
 
           img{
-            width: 100%; height: 100%;
+            width: 100%; height: 100%; opacity: 0.8;
           }
           
           h2{
@@ -40,7 +41,6 @@
         }
       }
     }
-
 
 
     &::before{
