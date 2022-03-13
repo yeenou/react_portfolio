@@ -93,7 +93,101 @@
 
 
 
-
+@media screen and (max-width: $tablet){
+  
+  .join{
+    >figure {
+      >.inner{
+        >h1{
+          span{ letter-spacing: 20px; }
+        }
+      }
+    }
+  
+    .inner{
+      h1{}
+      section{
+        width: 100%; padding: 300px 0 150px 0; 
+        border-left: 2px solid #2c2c2c;
+        border-right: 2px solid #2c2c2c;
+    
+        form{
+          fieldset{
+            table {
+              width: 100%; 
+              border-top: 2px solid #2c2c2c; border-bottom: 2px solid #2c2c2c;
+              
+            
+              th, td {
+                border-bottom: 2px solid #2c2c2c; 
+                padding: 20px 40px;
+              }
+            
+              th {
+                width: 30%; border-right: 2px solid #2c2c2c; 
+                text-align: right; font: bold 15px/1 'Poppins'; color: #ccc;
+            
+                &.btnSet {
+                  text-align: center;
+            
+                  input[type=reset], input[type=submit] {
+                    width: 150px; height: 50px; 
+                    border: none; background: #c5a57c;
+                    font:bold 14px/1 "Poppins"; color: #ccc;
+                    letter-spacing: 2px; text-align: center; 
+                    margin: 10px; cursor: pointer; 
+                    transition: 0.5s;
+            
+                    &:hover {
+                      background: #555; color: #fff;
+                    }
+                  }
+                }
+              }
+            
+              td {
+                input[type=text], input[type=password], select {
+                  width: 60%; padding: 10px 20px; 
+                  border: none; border-bottom: 2px solid #555; 
+                  background: none;
+                  font: 14px/1 'Poppins'; color:#555;
+                }
+                textarea {
+                  width: 60%; height: 150px; padding: 10px 20px; 
+                  border: 2px solid #555; background: none; 
+                  resize: none;
+                }
+                label {
+                  font: 14px/1 'Poppins'; color: #555; margin-right: 5px;
+                }
+                input[type=radio], input[type=checkbox] {
+                  margin-right: 20px;
+                }
+                .err {
+                  font: 11px/1 '맑은 고딕'; color: red; display: block; margin: 5px 0px;
+                }
+              }
+            }
+            
+          }
+        }
+  
+        &::after{
+          content: 'join'; display: block; 
+          font: bold 212px/1 'arial'; color: #2d2d2d; 
+          letter-spacing: 5px;
+          position: absolute; left: -110px; top: 220px;
+          z-index: -5;
+        }
+      }
+    }
+  }
+  
+  .success {
+    width: 100%; padding: 20px; background: lightcyan; font: bold 16px/1 '맑은 고딕'; color: cornflowerblue; margin-bottom: 50px;
+  }
+  
+}
 
 
 
