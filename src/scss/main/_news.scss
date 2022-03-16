@@ -69,3 +69,16 @@
     }
   }
 }
+
+
+
+@media screen and (max-width: $tablet) {
+
+  #news {
+    .inner {
+      width: 100%; padding: 150px 3vw ;
+  
+      .txt{ z-index: 3; }
+    }
+  }
+}
