@@ -24,6 +24,7 @@ export default function Header(props){
       </header>
       
       <nav id='menuMo' className={isOn ? 'on' : ''}>
+        <h1>LOGO</h1>
         <Gnb toggleNav={toggleNav} />
       </nav>
     </>
