@@ -75,14 +75,24 @@
   .content {
     >figure {
       >.inner{
-        width: 100%; 
+        width: 100%; padding: 0 3vw ;
 
-        >p{ display: none; }
+        >p{ right: 3vw; }
       }
     }
-
     >.inner {
       width: 100%; padding: 0px 3vw; padding-top: 80px
     }
+  }
+}
+
+@media screen and (max-width: $tablet2){
+  .content {
+    >figure {
+      >.inner{
+        >p{ display: none; }
+      }
+    }
+    >.inner { }
   }
 }
